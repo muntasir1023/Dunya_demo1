@@ -1,1 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dunya International Supermarket | Fresh & Global</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --primary: #059669;
+            --primary-dark: #047857;
+            --secondary: #10B981;
+            --bg-light: #F9FAFB;
+            --text-dark: #111827;
+            --text-muted: #6B7280;
+            --white: #FFFFFF;
+            --border: #E5E7EB;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --radius: 16px;
+            --transition: all 0.3s ease;
+        }
 
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: var(--bg-light); color: var(--text-dark); line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; display: block; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+        /* Navbar */
+        .navbar { position: sticky; top: 0; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); z-index: 1000; box-shadow: var(--shadow-sm); padding: 16px 0; border-bottom: 1px solid var(--border); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 24px; font-weight: 800; color: var(--primary); display: flex; align-items: center; gap: 8px; letter-spacing: -0.5px; }
+        .nav-links { display: flex; gap: 32px; align-items: center; }
+        .nav-links a { font-weight: 500; color: var(--text-dark); transition: var(--transition); font-size: 15px; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+        .nav-actions { display: flex; gap: 20px; align-items: center; }
+        .nav-actions i { cursor: pointer; transition: var(--transition); color: var(--text-dark); }
+        .nav-actions i:hover { color: var(--primary); }
+        .mobile-menu-btn { display: none; background: none; border: none; cursor: pointer; color: var(--text-dark); }
+
+        /* Buttons */
+        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 28px; background: var(--primary); color: var(--white); font-weight: 600; font-size: 15px; border-radius: 8px; transition: var(--transition); border: none; cursor: pointer; gap: 8px; text-align: center; }
+        .btn:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: var(--shadow-md); color: var(--white); }
+        .btn-outline { background: transparent; border: 2px solid var(--white); color: var(--white); }
+        .btn-outline:hover { background: var(--white); color: var(--primary); }
+
+        /* Hero Section */
+        .hero { height: 85vh; min-height: 600px; background: linear-gradient(to right, rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.4)), url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=1920') center/cover no-repeat; display: flex; align-items: center; color: var(--white); }
+        .hero-content { max-width: 650px; }
+        .hero h1 { font-size: 64px; font-weight: 800; margin-bottom: 24px; line-height: 1.1; letter-spacing: -1px; }
+        .hero p { font-size: 20px; margin-bottom: 40px; opacity: 0.9; font-weight: 300; }
+        
+        /* Floating Search */
+        .search-container { max-width: 800px; margin: -40px auto 0; position: relative; z-index: 10; padding: 0 24px; }
+        .search-box { display: flex; background: var(--white); padding: 8px; border-radius: 50px; box-shadow: var(--shadow-lg); align-items: center; }
+        .search-box i { color: var(--text-muted); margin-left: 20px; }
+        .search-box input { flex: 1; border: none; outline: none; padding: 16px 20px; font-size: 16px; background: transparent; }
+        .search-box .btn { border-radius: 40px; padding: 14px 36px; }
+
+        /* Typography & Layout */
+        section { padding: 100px 0; }
+        .section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; }
+        .section-title { font-size: 36px; font-weight: 800; letter-spacing: -0.5px; color: var(--text-dark); }
+        .section-subtitle { color: var(--text-muted); font-size: 16px; margin-top: 8px; }
+        .view-all { color: var(--primary); font-weight: 600; display: inline-flex; align-items: center; gap: 4px; transition: var(--transition); }
+        .view-all:hover { color: var(--primary-dark); gap: 8px; }
+
+        /* Features */
+        .features { background: var(--white); padding: 60px 0; border-bottom: 1px solid var(--border); }
+        .features-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+        .feature-item { display: flex; align-items: center; gap: 20px; }
+        .feature-icon { width: 56px; height: 56px; background: #ECFDF5; color: var(--primary); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .feature-text h3 { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+        .feature-text p { font-size: 14px; color: var(--text-muted); }
+
+        /* Categories Preview */
+        .categories-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 24px; }
+        .category-card { position: relative; border-radius: var(--radius); overflow: hidden; aspect-ratio: 4/5; cursor: pointer; text-decoration: none; }
+        .category-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+        .category-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 60%); display: flex; align-items: flex-end; padding: 24px; }
+        .category-card:hover img { transform: scale(1.1); }
+        .category-overlay h3 { color: var(--white); font-size: 20px; font-weight: 700; width: 100%; text-align: center; }
+
+        /* Products Grid */
+        .products-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+        .product-card { background: var(--white); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); transition: var(--transition); border: 1px solid var(--border); display: flex; flex-direction: column; }
+        .product-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-color: transparent; }
+        .product-img-wrapper { position: relative; height: 240px; overflow: hidden; }
+        .product-img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
+        .product-card:hover .product-img { transform: scale(1.05); }
+        .product-content { padding: 24px; display: flex; flex-direction: column; flex-grow: 1; }
+        .product-category { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-bottom: 8px; }
+        .product-title { font-size: 18px; font-weight: 700; color: var(--text-dark); margin-bottom: 12px; }
+        .product-price { font-size: 24px; font-weight: 800; color: var(--primary); margin-bottom: 24px; margin-top: auto; }
+        .product-card .btn { width: 100%; }
+
+        /* CTA Section */
+        .cta-section { background: var(--primary); padding: 100px 0; color: var(--white); text-align: center; position: relative; overflow: hidden; }
+        .cta-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,...') opacity 0.1; }
+        .cta-content { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+        .cta-content h2 { font-size: 48px; font-weight: 800; margin-bottom: 24px; letter-spacing: -1px; }
+        .cta-content p { font-size: 20px; margin-bottom: 40px; font-weight: 300; opacity: 0.9; }
+        .cta-buttons { display: flex; gap: 20px; justify-content: center; }
+
+        /* Footer */
+        .footer { background: #111827; color: var(--white); padding: 80px 0 32px; border-top: 5px solid var(--primary); }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 64px; margin-bottom: 64px; }
+        .footer-brand p { color: #9CA3AF; margin-top: 16px; font-size: 15px; }
+        .footer-col h4 { font-size: 18px; font-weight: 700; margin-bottom: 24px; }
+        .footer-col a, .footer-col p { color: #9CA3AF; margin-bottom: 16px; display: flex; align-items: center; gap: 12px; transition: var(--transition); font-size: 15px; }
+        .footer-col a:hover { color: var(--primary); }
+        .social-links { display: flex; gap: 16px; margin-top: 24px; }
+        .social-links a { width: 40px; height: 40px; background: #1F2937; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--white); }
+        .social-links a:hover { background: var(--primary); color: var(--white); transform: translateY(-3px); }
+        .footer-bottom { text-align: center; padding-top: 32px; border-top: 1px solid #374151; color: #6B7280; font-size: 14px; }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero h1 { font-size: 48px; }
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
+            .categories-grid { grid-template-columns: repeat(3, 1fr); }
+            .products-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: var(--white); padding: 24px; flex-direction: column; box-shadow: var(--shadow-md); border-top: 1px solid var(--border); }
+            .nav-links.active { display: flex; }
+            .mobile-menu-btn { display: block; }
+            .hero { height: 70vh; text-align: center; }
+            .hero-content { margin: 0 auto; }
+            .hero h1 { font-size: 40px; }
+            .search-box { flex-direction: column; padding: 16px; border-radius: 16px; gap: 16px; }
+            .search-box input { width: 100%; padding: 0; text-align: center; }
+            .search-box .btn { width: 100%; }
+            .search-box i { display: none; }
+            .categories-grid { grid-template-columns: repeat(2, 1fr); }
+            .products-grid { grid-template-columns: 1fr; }
+            .cta-buttons { flex-direction: column; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .section-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i data-lucide="shopping-basket"></i> Dunya
+            </a>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="shop.html">Shop</a>
+                <a href="categories.html">Categories</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <a href="shop.html"><i data-lucide="search"></i></a>
+                <a href="contact.html"><i data-lucide="phone"></i></a>
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Freshness Meets Global Flavors</h1>
+                <p>Your premium international supermarket in Nijmegen. Discover the finest selection of daily fresh produce, meats, and imported specialties.</p>
+                <a href="shop.html" class="btn"><i data-lucide="shopping-bag"></i> Shop Now</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Floating Search -->
+    <div class="search-container">
+        <div class="search-box">
+            <i data-lucide="search"></i>
+            <input type="text" placeholder="Search for groceries, meat, snacks...">
+            <button class="btn">Search</button>
+        </div>
+    </div>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="container features-grid">
+            <div class="feature-item">
+                <div class="feature-icon"><i data-lucide="truck"></i></div>
+                <div class="feature-text">
+                    <h3>Fast Delivery</h3>
+                    <p>Same day delivery in Nijmegen</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><i data-lucide="leaf"></i></div>
+                <div class="feature-text">
+                    <h3>Fresh Daily</h3>
+                    <p>Produce sourced every morning</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><i data-lucide="globe"></i></div>
+                <div class="feature-text">
+                    <h3>Global Selection</h3>
+                    <p>Imported authentic goods</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><i data-lucide="tag"></i></div>
+                <div class="feature-text">
+                    <h3>Best Prices</h3>
+                    <p>Affordable premium quality</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Preview -->
+    <section class="categories" style="padding-top: 60px;">
+        <div class="container">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">Shop by Category</h2>
+                    <p class="section-subtitle">Browse our wide selection of high-quality products.</p>
+                </div>
+                <a href="categories.html" class="view-all">View All Categories <i data-lucide="arrow-right"></i></a>
+            </div>
+            <div class="categories-grid">
+                <a href="shop.html" class="category-card">
+                    <img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&q=80&w=400" alt="Fruits">
+                    <div class="category-overlay"><h3>Fruits</h3></div>
+                </a>
+                <a href="shop.html" class="category-card">
+                    <img src="https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&q=80&w=400" alt="Vegetables">
+                    <div class="category-overlay"><h3>Vegetables</h3></div>
+                </a>
+                <a href="shop.html" class="category-card">
+                    <img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?auto=format&fit=crop&q=80&w=400" alt="Meat & Fish">
+                    <div class="category-overlay"><h3>Meat & Fish</h3></div>
+                </a>
+                <a href="shop.html" class="category-card">
+                    <img src="https://images.unsplash.com/photo-1628088062854-d1870b4553da?auto=format&fit=crop&q=80&w=400" alt="Dairy">
+                    <div class="category-overlay"><h3>Dairy</h3></div>
+                </a>
+                <a href="shop.html" class="category-card">
+                    <img src="https://images.unsplash.com/photo-1621939514649-280e2ee25f60?auto=format&fit=crop&q=80&w=400" alt="Snacks">
+                    <div class="category-overlay"><h3>Snacks</h3></div>
+                </a>
+                <a href="shop.html" class="category-card">
+                    <img src="https://images.unsplash.com/photo-1584473457406-6240486414e9?auto=format&fit=crop&q=80&w=400" alt="Imported">
+                    <div class="category-overlay"><h3>Imported</h3></div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Products -->
+    <section class="popular-products" style="background: var(--white);">
+        <div class="container">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">Popular This Week</h2>
+                    <p class="section-subtitle">Our customers' absolute favorites.</p>
+                </div>
+                <a href="shop.html" class="view-all">View All Products <i data-lucide="arrow-right"></i></a>
+            </div>
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?auto=format&fit=crop&q=80&w=400" alt="Fresh Hass Avocado" class="product-img">
+                    </div>
+                    <div class="product-content">
+                        <span class="product-category">Fruits</span>
+                        <h3 class="product-title">Fresh Hass Avocado</h3>
+                        <div class="product-price">€2.49</div>
+                        <a href="javascript:void(0)" class="btn"><i data-lucide="shopping-cart"></i> Order Now</a>
+                    </div>
+                </div>
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1599084993091-1cb5c0721cc6?auto=format&fit=crop&q=80&w=400" alt="Premium Atlantic Salmon" class="product-img">
+                    </div>
+                    <div class="product-content">
+                        <span class="product-category">Meat & Fish</span>
+                        <h3 class="product-title">Premium Atlantic Salmon</h3>
+                        <div class="product-price">€14.99</div>
+                        <a href="javascript:void(0)" class="btn"><i data-lucide="shopping-cart"></i> Order Now</a>
+                    </div>
+                </div>
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&q=80&w=400" alt="Organic Whole Milk" class="product-img">
+                    </div>
+                    <div class="product-content">
+                        <span class="product-category">Dairy</span>
+                        <h3 class="product-title">Organic Whole Milk</h3>
+                        <div class="product-price">€1.89</div>
+                        <a href="javascript:void(0)" class="btn"><i data-lucide="shopping-cart"></i> Order Now</a>
+                    </div>
+                </div>
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1599598425947-330026296906?auto=format&fit=crop&q=80&w=400" alt="Turkish Delight Assortment" class="product-img">
+                    </div>
+                    <div class="product-content">
+                        <span class="product-category">Imported</span>
+                        <h3 class="product-title">Turkish Sweets Assortment</h3>
+                        <div class="product-price">€5.99</div>
+                        <a href="javascript:void(0)" class="btn"><i data-lucide="shopping-cart"></i> Order Now</a>
+                    </div>
+                </div>
+                <!-- Product 5 -->
+                <div class="product-card">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1576045057995-568f588f82fb?auto=format&fit=crop&q=80&w=400" alt="Fresh Organic Spinach" class="product-img">
+                    </div>
+                    <div class="product-content">
+                        <span class="product-category">Vegetables</span>
+                        <h3 class="product-title">Fresh Organic Spinach</h3>
+                        <div class="product-price">€1.99</div>
+                        <a href="javascript:void(0)" class="btn"><i data-lucide="shopping-cart"></i> Order Now</a>
+                    </div>
+                </div>
+                <!-- Product 6 -->
+                <div class="product-card">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1585478259715-876a6a81fa08?auto=format&fit=crop&q=80&w=400" alt="Artisan Sourdough Bread" class="product-img">
+                    </div>
+                    <div class="product-content">
+                        <span class="product-category">Groceries</span>
+                        <h3 class="product-title">Artisan Sourdough Bread</h3>
+                        <div class="product-price">€3.49</div>
+                        <a href="javascript:void(0)" class="btn"><i data-lucide="shopping-cart"></i> Order Now</a>
+                    </div>
+                </div>
+                <!-- Product 7 -->
+                <div class="product-card">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&q=80&w=400" alt="Spanish Extra Virgin Olive Oil" class="product-img">
+                    </div>
+                    <div class="product-content">
+                        <span class="product-category">Groceries</span>
+                        <h3 class="product-title">Spanish Olive Oil</h3>
+                        <div class="product-price">€8.99</div>
+                        <a href="javascript:void(0)" class="btn"><i data-lucide="shopping-cart"></i> Order Now</a>
+                    </div>
+                </div>
+                <!-- Product 8 -->
+                <div class="product-card">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1587486913049-53fc88980cfc?auto=format&fit=crop&q=80&w=400" alt="Free-Range Eggs" class="product-img">
+                    </div>
+                    <div class="product-content">
+                        <span class="product-category">Dairy</span>
+                        <h3 class="product-title">Free-Range Eggs (12-pack)</h3>
+                        <div class="product-price">€3.29</div>
+                        <a href="javascript:void(0)" class="btn"><i data-lucide="shopping-cart"></i> Order Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container cta-content">
+            <h2>Experience Dunya Today</h2>
+            <p>Visit our store in Nijmegen for the freshest daily produce and premium imported goods, or conveniently place your order directly via WhatsApp.</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="btn btn-outline"><i data-lucide="map-pin"></i> Get Directions</a>
+                <a href="https://wa.me/31243555339" target="_blank" class="btn" style="background: #25D366; border-color: #25D366;"><i data-lucide="message-circle"></i> WhatsApp Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo" style="color: var(--white);">
+                        <i data-lucide="shopping-basket"></i> Dunya
+                    </a>
+                    <p>Your premium international supermarket bringing the world's finest flavors directly to your table in the Netherlands.</p>
+                    <div class="social-links">
+                        <a href="#"><i data-lucide="facebook"></i></a>
+                        <a href="#"><i data-lucide="instagram"></i></a>
+                        <a href="#"><i data-lucide="twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="shop.html">Shop Online</a>
+                    <a href="categories.html">Categories</a>
+                    <a href="about.html">About Us</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Categories</h4>
+                    <a href="shop.html">Fruits & Vegetables</a>
+                    <a href="shop.html">Meat & Fish</a>
+                    <a href="shop.html">Dairy & Eggs</a>
+                    <a href="shop.html">Imported Goods</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p><i data-lucide="map-pin"></i> Couwenbergstraat 115,<br>6535 RX Nijmegen</p>
+                    <p><i data-lucide="phone"></i> +31 243 555 339</p>
+                    <p><i data-lucide="mail"></i> info@dunyasupermarket.nl</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Dunya International Supermarket. All rights reserved. Designed for Premium Quality.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const navLinks = document.getElementById('nav-links');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
