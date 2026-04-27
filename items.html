@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | Dunya International Supermarket</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        dunya: {
+                            light: '#4ade80',
+                            main: '#16a34a',
+                            dark: '#14532d',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0a0f0d;
+            color: #ffffff;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Hero Background like index.html */
+        .ambient-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background-image: url('https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            z-index: -2;
+            filter: brightness(0.4);
+        }
+        .ambient-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: radial-gradient(circle at 50% 50%, rgba(22, 163, 74, 0.05) 0%, rgba(10, 15, 13, 0.95) 100%);
+            z-index: -1;
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-nav {
+            background: rgba(10, 15, 12, 0.8);
+            backdrop-filter: blur(25px) saturate(180%);
+            -webkit-backdrop-filter: blur(25px) saturate(180%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .product-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .product-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(74, 222, 128, 0.2);
+        }
+
+        .category-pill {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .category-pill.active {
+            background: #16a34a;
+            color: white;
+            box-shadow: 0 8px 20px rgba(22, 163, 74, 0.3);
+            border-color: transparent;
+        }
+
+        [dir="rtl"] { text-align: right; }
+        [dir="rtl"] .ml-auto { margin-right: auto; margin-left: 0; }
+        
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .reveal { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        #lang-dropdown { transform-origin: top right; transition: all 0.2s ease; }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-bg"></div>
+    <div class="ambient-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-dunya-main flex items-center justify-center">
+                    <i class="fa-solid fa-basket-shopping text-white"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-xl font-bold tracking-tight text-white">Dunya</span>
+                    <span class="text-[10px] uppercase tracking-widest text-gray-400">Supermarket</span>
+                </div>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8">
+                <a href="index.html" class="text-sm font-medium text-gray-300 hover:text-white" data-i18n="nav_home">Home</a>
+                <a href="items.html" class="text-sm font-medium text-dunya-light" data-i18n="nav_products">Products</a>
+                <a href="aboutus.html" class="text-sm font-medium text-gray-300 hover:text-white" data-i18n="nav_about">About Us</a>
+            </div>
+
+            <!-- Language Switcher -->
+            <div class="relative">
+                <button id="lang-btn" class="glass-panel px-4 py-2 rounded-full flex items-center gap-2 cursor-pointer hover:bg-white/10 transition">
+                    <i class="fa-solid fa-globe text-dunya-light text-sm"></i>
+                    <span id="current-lang-text" class="text-xs font-semibold">EN</span>
+                    <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                </button>
+                <div id="lang-dropdown" class="absolute right-0 mt-2 w-40 glass-panel rounded-2xl overflow-hidden opacity-0 scale-95 pointer-events-none z-50 shadow-2xl">
+                    <ul class="py-2 text-xs text-gray-300">
+                        <li><button onclick="setLanguage('en')" class="w-full text-left px-4 py-2 hover:bg-white/10 hover:text-white">English</button></li>
+                        <li><button onclick="setLanguage('nl')" class="w-full text-left px-4 py-2 hover:bg-white/10 hover:text-white">Nederlands</button></li>
+                        <li><button onclick="setLanguage('tr')" class="w-full text-left px-4 py-2 hover:bg-white/10 hover:text-white">Türkçe</button></li>
+                        <li><button onclick="setLanguage('ku')" class="w-full text-left px-4 py-2 hover:bg-white/10 hover:text-white">Kurdî</button></li>
+                        <li><button onclick="setLanguage('fr')" class="w-full text-left px-4 py-2 hover:bg-white/10 hover:text-white">Français</button></li>
+                        <li><button onclick="setLanguage('es')" class="w-full text-left px-4 py-2 hover:bg-white/10 hover:text-white">Español</button></li>
+                        <li><button onclick="setLanguage('ar')" class="w-full text-left px-4 py-2 hover:bg-white/10 hover:text-white">العربية</button></li>
+                        <li><button onclick="setLanguage('zz')" class="w-full text-left px-4 py-2 hover:bg-white/10 hover:text-white">Zazaki</button></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="pt-40 pb-12 px-6">
+        <div class="max-w-7xl mx-auto text-center">
+            <h1 class="text-5xl md:text-7xl font-serif font-bold text-white mb-6" data-i18n="page_title">International Selection</h1>
+            <p class="text-gray-400 max-w-2xl mx-auto text-lg" data-i18n="page_subtitle">Excellence in every aisle. Discover premium cuts, traditional bakes, and world-class spices.</p>
+        </div>
+    </header>
+
+    <!-- Filters -->
+    <section class="pb-12 px-6 sticky top-[73px] z-30">
+        <div class="max-w-7xl mx-auto flex overflow-x-auto gap-4 pb-4 no-scrollbar justify-center">
+            <button class="category-pill active glass-panel px-6 py-2.5 rounded-full whitespace-nowrap text-sm font-medium" onclick="filterCategory('all')" data-i18n="cat_all">All Items</button>
+            <button class="category-pill glass-panel px-6 py-2.5 rounded-full whitespace-nowrap text-sm font-medium" onclick="filterCategory('butcher')" data-i18n="cat_meat">Butcher</button>
+            <button class="category-pill glass-panel px-6 py-2.5 rounded-full whitespace-nowrap text-sm font-medium" onclick="filterCategory('bakery')" data-i18n="cat_bakery">Bakery</button>
+            <button class="category-pill glass-panel px-6 py-2.5 rounded-full whitespace-nowrap text-sm font-medium" onclick="filterCategory('dairy')" data-i18n="cat_dairy">Dairy & Cheese</button>
+            <button class="category-pill glass-panel px-6 py-2.5 rounded-full whitespace-nowrap text-sm font-medium" onclick="filterCategory('grocery')" data-i18n="cat_grocery">Grocery</button>
+        </div>
+    </section>
+
+    <!-- Product Grid -->
+    <main class="max-w-7xl mx-auto px-6 pb-32">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" id="product-grid">
+            <!-- Items generated by JS -->
+        </div>
+    </main>
+
+    <!-- Footer - Refined like index.html -->
+    <footer class="glass-nav border-t border-white/10 pt-20 pb-10 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 rounded-2xl bg-dunya-main flex items-center justify-center">
+                            <i class="fa-solid fa-basket-shopping text-white text-xl"></i>
+                        </div>
+                        <span class="text-2xl font-bold font-serif">Dunya Supermarket</span>
+                    </div>
+                    <p class="text-gray-400 mb-8 max-w-md" data-i18n="footer_desc">Bringing the flavors of the world to your doorstep since 1998. Your trusted partner for quality international groceries.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full glass-panel flex items-center justify-center hover:bg-dunya-main transition"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full glass-panel flex items-center justify-center hover:bg-dunya-main transition"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full glass-panel flex items-center justify-center hover:bg-dunya-main transition"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-serif font-bold mb-6 text-white" data-i18n="footer_links">Quick Links</h4>
+                    <ul class="space-y-4 text-gray-400 text-sm">
+                        <li><a href="index.html" class="hover:text-dunya-light transition" data-i18n="nav_home">Home</a></li>
+                        <li><a href="items.html" class="hover:text-dunya-light transition" data-i18n="nav_products">Products</a></li>
+                        <li><a href="aboutus.html" class="hover:text-dunya-light transition" data-i18n="nav_about">About Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-serif font-bold mb-6 text-white" data-i18n="footer_contact">Location</h4>
+                    <p class="text-gray-400 text-sm mb-4">Stationsplein 45,<br>3013 AK Rotterdam</p>
+                    <p class="text-gray-400 text-sm">info@dunya-market.com</p>
+                    <p class="text-dunya-light font-bold mt-2">+31 10 123 4567</p>
+                </div>
+            </div>
+            <div class="border-t border-white/5 pt-8 text-center text-xs text-gray-500">
+                <p data-i18n="footer_rights">© 2024 Dunya International Supermarket. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            en: {
+                nav_home: "Home", nav_products: "Products", nav_about: "About Us",
+                page_title: "International Selection", page_subtitle: "Excellence in every aisle. Discover premium cuts, traditional bakes, and world-class spices.",
+                cat_all: "All Items", cat_meat: "Butcher", cat_bakery: "Bakery", cat_dairy: "Dairy & Cheese", cat_grocery: "Grocery",
+                footer_desc: "Bringing the flavors of the world to your doorstep. Your trusted partner for quality groceries.",
+                footer_links: "Quick Links", footer_contact: "Location", footer_rights: "© 2024 Dunya Supermarket. All rights reserved."
+            },
+            nl: {
+                nav_home: "Startpagina", nav_products: "Producten", nav_about: "Over Ons",
+                page_title: "Internationale Selectie", page_subtitle: "Uitmuntendheid in elk gangpad. Ontdek kwaliteitsvlees en vers gebak.",
+                cat_all: "Alles", cat_meat: "Slagerij", cat_bakery: "Bakkerij", cat_dairy: "Zuivel", cat_grocery: "Supermarkt",
+                footer_desc: "De smaken van de wereld bij u thuis. Uw partner voor kwaliteitsproducten.",
+                footer_links: "Snelkoppelingen", footer_contact: "Locatie", footer_rights: "© 2024 Dunya Supermarkt. Alle rechten voorbehouden."
+            },
+            tr: {
+                nav_home: "Anasayfa", nav_products: "Ürünler", nav_about: "Hakkımızda",
+                page_title: "Uluslararası Seçki", page_subtitle: "Her reyonumuzda mükemmellik. Taze etler ve geleneksel lezzetler.",
+                cat_all: "Hepsi", cat_meat: "Kasap", cat_bakery: "Fırın", cat_dairy: "Şarküteri", cat_grocery: "Market",
+                footer_desc: "Dünyanın lezzetlerini kapınıza getiriyoruz. Kaliteli alışverişteki güvenilir ortağınız.",
+                footer_links: "Hızlı Linkler", footer_contact: "Konum", footer_rights: "© 2024 Dunya Süpermarket. Tüm hakları saklıdır."
+            },
+            ku: {
+                nav_home: "Sereke", nav_products: "Berhem", nav_about: "Derheqê Me",
+                page_title: "Berhemên Cîhanî", page_subtitle: "Di her beşê de kalîte. Goştê qenc û nanê taze li benda we ye.",
+                cat_all: "Hemû", cat_meat: "Qesab", cat_bakery: "Nanpêjgeh", cat_dairy: "Şîr û Penêr", cat_grocery: "Bazar",
+                footer_desc: "Tehmên dinyayê li ber deriyê we ne. Hevparê we yê bawerbar ji bo kalîteyê.",
+                footer_links: "Lînkên Bilez", footer_contact: "Cîh", footer_rights: "© 2024 Dunya. Maf parastî ne."
+            },
+            fr: {
+                nav_home: "Accueil", nav_products: "Produits", nav_about: "À Propos",
+                page_title: "Sélection Internationale", page_subtitle: "L'excellence dans chaque rayon. Découvrez nos viandes et pains artisanaux.",
+                cat_all: "Tout", cat_meat: "Boucherie", cat_bakery: "Boulangerie", cat_dairy: "Laitage", cat_grocery: "Épicerie",
+                footer_desc: "Les saveurs du monde à votre porte. Votre partenaire de confiance.",
+                footer_links: "Liens Rapides", footer_contact: "Localisation", footer_rights: "© 2024 Dunya. Tous droits réservés."
+            },
+            es: {
+                nav_home: "Inicio", nav_products: "Productos", nav_about: "Nosotros",
+                page_title: "Selección Internacional", page_subtitle: "Excelencia en cada pasillo. Carnes de calidad y panadería artesana.",
+                cat_all: "Todo", cat_meat: "Carnicería", cat_bakery: "Panadería", cat_dairy: "Lácteos", cat_grocery: "Abarrotes",
+                footer_desc: "Sabores del mundo en su hogar. Calidad y confianza familiar.",
+                footer_links: "Enlaces Rápidos", footer_contact: "Ubicación", footer_rights: "© 2024 Dunya. Todos los derechos reservados."
+            },
+            ar: {
+                nav_home: "الرئيسية", nav_products: "المنتجات", nav_about: "من نحن",
+                page_title: "مجموعة عالمية", page_subtitle: "التميز في كل قسم. اكتشف أجود اللحوم والمخبوزات التقليدية.",
+                cat_all: "الكل", cat_meat: "اللحوم", cat_bakery: "المخبوزات", cat_dairy: "الألبان", cat_grocery: "البقالة",
+                footer_desc: "نأتي بنكهات العالم إلى باب منزلك. شريكك الموثوق للجودة.",
+                footer_links: "روابط سريعة", footer_contact: "الموقع", footer_rights: "© 2024 دنيا سوبر ماركت. جميع الحقوق محفوظة."
+            },
+            zz: {
+                nav_home: "Keye", nav_products: "Malun", nav_about: "Ma ser",
+                page_title: "Sûka Dinya", page_subtitle: "Her ca de kalîte. Goştê weş û nanê taze dermanê şıma yo.",
+                cat_all: "Pêro", cat_meat: "Qesab", cat_bakery: "Fırın", cat_dairy: "Şıt û Penir", cat_grocery: "Markete",
+                footer_desc: "Tehmê dinya kapiyê şıma de yo. İtibarê şıma yo herdemi.",
+                footer_links: "Lînkê Leze", footer_contact: "Ca", footer_rights: "© 2024 Dunya. Heqî amê pawıtene."
+            }
+        };
+
+        const products = [
+            // Butcher
+            { name: "Premium Lamb Chops", cat: "butcher", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7rH5qlHVQcALmZYvxcQzr2JGgnYsIpbMWyu9O9XWEiw&s?q=80&w=800" },
+            { name: "Organic Chicken Breast", cat: "butcher", img: "https://images.unsplash.com/photo-1604503468506-a8da13d82791?q=80&w=800" },
+            { name: "Angus Beef Steak", cat: "butcher", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwirr3ClIs6xg0umMrFaWOveUhNEWY1MPSwQ&s?q=80&w=800" },
+            { name: "Spiced Sucuk Sausage", cat: "butcher", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnonsKzjJGIZxRg-b2wPVV_h4oPNxy1RR9BA&s?q=80&w=800" },
+            { name: "Lamb Shish Skewers", cat: "butcher", img: "https://images.unsplash.com/photo-1598514982205-f36b96d1e8d4?q=80&w=800" },
+            { name: "Wagyu Ground Beef", cat: "butcher", img: "https://images.unsplash.com/photo-1588168333986-5078d3ae3976?q=80&w=800" },
+            
+            // Bakery
+            { name: "Fresh Turkish Simit", cat: "bakery", img: "https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=800" },
+            { name: "Handmade Baklava", cat: "bakery", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStjnPFWCbHVvvzFbukqZvyWFjY5-QCI3-ckg&s?q=80&w=800" },
+            { name: "Artisan Sourdough", cat: "bakery", img: "https://images.unsplash.com/photo-1585478259715-876a6a81fc08?q=80&w=800" },
+            { name: "Warm Pita Bread", cat: "bakery", img: "https://www.shugarysweets.com/wp-content/uploads/2017/06/almond-croissants-recipe.jpg?q=80&w=800" },
+            { name: "Almond Croissants", cat: "bakery", img: "https://images.unsplash.com/photo-1555507036-36942000109d?q=80&w=800" },
+            { name: "Olive & Cheese Pide", cat: "bakery", img: "https://images.unsplash.com/photo-1541745537411-b8046dc6d66c?q=80&w=800" },
+
+            // Dairy
+            { name: "Aged Balkan Feta", cat: "dairy", img: "https://images.unsplash.com/photo-1559561853-08451507cbe7?q=80&w=800" },
+            { name: "Turkish Labneh", cat: "dairy", img: "https://images.unsplash.com/photo-1485962391945-447a329ed810?q=80&w=800" },
+            { name: "Buffalo Mozzarella", cat: "dairy", img: "https://images.unsplash.com/photo-1552767059-ce182ead6c1b?q=80&w=800" },
+            { name: "Greek Yogurt", cat: "dairy", img: "https://images.unsplash.com/photo-1488477181946-6428a0291777?q=80&w=800" },
+            { name: "Smoked Gouda", cat: "dairy", img: "https://images.unsplash.com/photo-1528280069112-5397bd5a71e5?q=80&w=800" },
+            { name: "Fresh Kaymak Cream", cat: "dairy", img: "https://images.unsplash.com/photo-1563212888-067909361271?q=80&w=800" },
+
+            // Spices & Grocery
+            { name: "Wild Sumac Spice", cat: "grocery", img: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=800" },
+            { name: "Persian Saffron", cat: "grocery", img: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?q=80&w=800" },
+            { name: "Extra Virgin Olive Oil", cat: "grocery", img: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?q=80&w=800" },
+            { name: "Premium Black Tea", cat: "grocery", img: "https://images.unsplash.com/photo-1594631252845-29fc4586d52c?q=80&w=800" },
+            { name: "Medjool Dates", cat: "grocery", img: "https://images.unsplash.com/photo-1506477331477-33d6d8b3dc85?q=80&w=800" },
+            { name: "Aleppo Chili Flakes", cat: "grocery", img: "https://images.unsplash.com/photo-1594313022512-32a297e68d63?q=80&w=800" },
+            { name: "Wildflower Honey", cat: "grocery", img: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?q=80&w=800" },
+            { name: "Pickled Gherkins", cat: "grocery", img: "https://images.unsplash.com/photo-1589135339689-53609804e339?q=80&w=800" },
+            { name: "Tahini Spread", cat: "grocery", img: "https://images.unsplash.com/photo-1510629954389-c1e0da47d4ec?q=80&w=800" },
+            { name: "Organic Walnuts", cat: "grocery", img: "https://images.unsplash.com/photo-1526947425960-945c6e72858f?q=80&w=800" },
+            { name: "Turkish Coffee Beans", cat: "grocery", img: "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?q=80&w=800" },
+            { name: "Green Castelvetrano Olives", cat: "grocery", img: "https://images.unsplash.com/photo-1524143878510-e3b8d6312402?q=80&w=800" },
+            { name: "Dried Figs", cat: "grocery", img: "https://images.unsplash.com/photo-1605647540924-852296657db4?q=80&w=800" },
+            { name: "Basmati Rice 5kg", cat: "grocery", img: "https://images.unsplash.com/photo-1586201375761-83865001e31c?q=80&w=800" }
+        ];
+
+        const productGrid = document.getElementById('product-grid');
+        
+        function displayProducts(filtered) {
+            productGrid.innerHTML = '';
+            filtered.forEach((p, index) => {
+                const card = document.createElement('div');
+                card.className = 'product-card glass-panel rounded-[2.5rem] overflow-hidden p-5 flex flex-col items-center text-center';
+                card.style.animation = `fadeInUp 0.6s ease forwards ${index * 0.05}s`;
+                card.style.opacity = '0';
+                card.innerHTML = `
+                    <div class="w-full aspect-square rounded-[1.8rem] overflow-hidden mb-6 relative group">
+                        <img src="${p.img}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+                    </div>
+                    <span class="text-[10px] uppercase tracking-widest text-dunya-light font-bold mb-2">${p.cat}</span>
+                    <h3 class="text-xl font-serif font-bold text-white mb-4 px-2 line-clamp-1">${p.name}</h3>
+                    <div class="mt-auto w-full pt-4 border-t border-white/5 flex items-center justify-center gap-2 text-xs text-gray-500">
+                        <i class="fa-solid fa-check-circle text-dunya-main"></i>
+                        <span>Freshness Guaranteed</span>
+                    </div>
+                `;
+                productGrid.appendChild(card);
+            });
+        }
+
+        window.filterCategory = function(cat) {
+            document.querySelectorAll('.category-pill').forEach(btn => btn.classList.remove('active'));
+            const currentBtn = event.currentTarget;
+            currentBtn.classList.add('active');
+            
+            const results = (cat === 'all') ? products : products.filter(p => p.cat === cat);
+            displayProducts(results);
+        };
+
+        const langBtn = document.getElementById('lang-btn');
+        const langDropdown = document.getElementById('lang-dropdown');
+        const currentLangText = document.getElementById('current-lang-text');
+
+        langBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            langDropdown.classList.toggle('opacity-0');
+            langDropdown.classList.toggle('scale-95');
+            langDropdown.classList.toggle('pointer-events-none');
+        });
+
+        window.setLanguage = function(lang) {
+            currentLangText.textContent = lang.toUpperCase();
+            document.documentElement.dir = (lang === 'ar' || lang === 'ku') ? 'rtl' : 'ltr';
+            
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if(translations[lang][key]) el.textContent = translations[lang][key];
+            });
+
+            langDropdown.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+        };
+
+        window.onload = () => {
+            displayProducts(products);
+            setLanguage('en');
+        };
+
+        document.addEventListener('click', () => {
+            if(!langDropdown.classList.contains('opacity-0')) {
+                langDropdown.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+            }
+        });
+    </script>
+
+    <style>
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</body>
+</html>
