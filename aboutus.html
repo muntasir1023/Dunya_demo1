@@ -121,6 +121,14 @@
         }
         html.light .theme-switch-container { background: rgba(0, 0, 0, 0.05); border-color: rgba(0, 0, 0, 0.05); }
         html.light .theme-switch-handle { transform: translateX(24px); }
+
+        /* Bulk Service Banner Style */
+        #bulk-banner {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        #bulk-banner:hover {
+            transform: scale(1.02) translateY(-5px);
+        }
     </style>
 </head>
 <body>
@@ -164,17 +172,48 @@
                 </button>
                 <div id="lang-dropdown" class="absolute right-0 mt-2 w-40 glass-panel rounded-2xl overflow-hidden opacity-0 scale-95 pointer-events-none z-50 shadow-2xl">
                     <ul class="py-2 text-xs text-gray-300">
-                        <li><button onclick="setLanguage('en')" class="w-full text-left px-4 py-2 hover:bg-white/10 hover:text-white">English</button></li>
-                        <li><button onclick="setLanguage('nl')" class="w-full text-left px-4 py-2 hover:bg-white/10 hover:text-white">Nederlands</button></li>
-                        <li><button onclick="setLanguage('tr')" class="w-full text-left px-4 py-2 hover:bg-white/10 hover:text-white">Türkçe</button></li>
-                        <li><button onclick="setLanguage('ku')" class="w-full text-left px-4 py-2 hover:bg-white/10 hover:text-white">Kurdî</button></li>
-                        <li><button onclick="setLanguage('fr')" class="w-full text-left px-4 py-2 hover:bg-white/10 hover:text-white">Français</button></li>
-                        <li><button onclick="setLanguage('es')" class="w-full text-left px-4 py-2 hover:bg-white/10 hover:text-white">Español</button></li>
-                        <li><button onclick="setLanguage('ar')" class="w-full text-left px-4 py-2 hover:bg-white/10 hover:text-white">العربية</button></li>
-                        <li><button onclick="setLanguage('zz')" class="w-full text-left px-4 py-2 hover:bg-white/10 hover:text-white">Zazaki</button></li>
+                        <li><button onclick="setLanguage('en')" class="w-full text-left px-4 py-2 hover:bg-white/10 hover:text-white lang-option" data-lang="en">English</button></li>
+                        <li><button onclick="setLanguage('nl')" class="w-full text-left px-4 py-2 hover:bg-white/10 hover:text-white lang-option" data-lang="nl">Nederlands</button></li>
+                        <li><button onclick="setLanguage('tr')" class="w-full text-left px-4 py-2 hover:bg-white/10 hover:text-white lang-option" data-lang="tr">Türkçe</button></li>
+                        <li><button onclick="setLanguage('ku')" class="w-full text-left px-4 py-2 hover:bg-white/10 hover:text-white lang-option" data-lang="ku">Kurdî</button></li>
+                        <li><button onclick="setLanguage('fr')" class="w-full text-left px-4 py-2 hover:bg-white/10 hover:text-white lang-option" data-lang="fr">Français</button></li>
+                        <li><button onclick="setLanguage('es')" class="w-full text-left px-4 py-2 hover:bg-white/10 hover:text-white lang-option" data-lang="es">Español</button></li>
+                        <li><button onclick="setLanguage('ar')" class="w-full text-left px-4 py-2 hover:bg-white/10 hover:text-white lang-option" data-lang="ar">العربية</button></li>
+                        <li><button onclick="setLanguage('zz')" class="w-full text-left px-4 py-2 hover:bg-white/10 hover:text-white lang-option" data-lang="zz">Zazaki</button></li>
                     </ul>
                 </div>
             </div>
+
+            <button class="md:hidden text-white text-2xl z-50 focus:outline-none ml-4" id="mobile-btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 glass-nav h-screen flex-col items-center justify-center gap-8 opacity-0 pointer-events-none transition-opacity duration-300 hidden md:hidden z-40">
+            <a href="index.html" class="text-2xl font-bold text-gray-300" data-i18n="nav_home">Home</a>
+            <a href="items.html" class="text-2xl font-bold text-gray-300" data-i18n="nav_products">Products</a>
+            <a href="aboutus.html" class="text-2xl font-bold text-white" data-i18n="nav_about">About Us</a>
+            
+            <div class="flex items-center gap-3 glass-panel px-6 py-3 rounded-full" onclick="toggleTheme()">
+                <span class="text-sm font-medium">Switch Theme</span>
+                <div class="theme-switch-container">
+                    <div class="theme-switch-handle"></div>
+                    <i class="fa-solid fa-moon text-[10px] text-dunya-light"></i>
+                    <i class="fa-solid fa-sun text-[10px] text-gray-400"></i>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-4 mt-4 px-6">
+                <button onclick="setLanguage('en'); toggleMobileMenu();" class="glass-panel px-4 py-2 rounded-lg text-sm lang-option" data-lang="en">EN</button>
+                <button onclick="setLanguage('nl'); toggleMobileMenu();" class="glass-panel px-4 py-2 rounded-lg text-sm lang-option" data-lang="nl">NL</button>
+                <button onclick="setLanguage('tr'); toggleMobileMenu();" class="glass-panel px-4 py-2 rounded-lg text-sm lang-option" data-lang="tr">TR</button>
+                <li><button onclick="setLanguage('fr'); toggleMobileMenu();" class="glass-panel px-4 py-2 rounded-lg text-sm lang-option" data-lang="fr">FR</button></li>
+                <button onclick="setLanguage('ku'); toggleMobileMenu();" class="glass-panel px-4 py-2 rounded-lg text-sm lang-option" data-lang="ku">KU</button>
+                <button onclick="setLanguage('es'); toggleMobileMenu();" class="glass-panel px-4 py-2 rounded-lg text-sm lang-option" data-lang="es">ES</button>
+                <button onclick="setLanguage('ar'); toggleMobileMenu();" class="glass-panel px-4 py-2 rounded-lg text-sm lang-option" data-lang="ar">AR</button>
+                <button onclick="setLanguage('zz'); toggleMobileMenu();" class="glass-panel px-4 py-2 rounded-lg text-sm lang-option" data-lang="zz">ZZ</button>
             </div>
         </div>
     </nav>
@@ -201,7 +240,7 @@
                         <div class="text-xs uppercase tracking-widest text-gray-500" data-i18n="stat_products">Products</div>
                     </div>
                     <div class="stat-card glass-panel p-6 rounded-3xl text-center transition-all duration-300">
-                        <div class="text-3xl font-bold text-dunya-light mb-1">100%</div>
+                        <div class="text-3xl font-bold text-dunya-light mb-1">99%</div>
                         <div class="text-xs uppercase tracking-widest text-gray-500" data-i18n="stat_halal">Halal Certified</div>
                     </div>
                 </div>
@@ -246,6 +285,29 @@
         </div>
     </main>
 
+    <!-- Premium Bulk Service Section -->
+    <section class="pb-24 px-6 reveal" id="bulk-banner">
+        <div class="max-w-4xl mx-auto">
+            <div class="glass-panel p-8 md:p-12 rounded-[3rem] border-dunya-main/30 border shadow-2xl relative overflow-hidden text-center">
+                <div class="absolute -top-24 -right-24 w-48 h-48 bg-dunya-main/10 rounded-full blur-3xl"></div>
+                <div class="absolute -bottom-24 -left-24 w-48 h-48 bg-dunya-main/5 rounded-full blur-3xl"></div>
+                
+                <h4 class="text-dunya-light font-bold flex items-center justify-center gap-2 mb-6 text-sm uppercase tracking-widest">
+                    <i class="fa-solid fa-truck-fast"></i> Premium Bulk Service
+                </h4>
+                <p class="text-lg md:text-xl text-gray-200 leading-relaxed mb-8 max-w-2xl mx-auto" data-i18n="bulk_service_desc">
+                    Ordering for <b>2+ weeks</b>? Avoid the search! WhatsApp your list to us. Just pick up and pay. <b>No advanced payment required.</b>
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="https://wa.me/312435555339" class="bg-dunya-main text-white px-8 py-3 rounded-full font-bold flex items-center justify-center gap-2 hover:brightness-110 transition shadow-lg shadow-dunya-main/20">
+                        <i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp Order
+                    </a>
+                    <a href="tel:02435555339" class="glass-panel text-white px-8 py-3 rounded-full font-bold hover:bg-white/10 transition">Call 024-35555339</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="glass-nav border-t border-white/10 pt-20 pb-10 px-6">
         <div class="max-w-7xl mx-auto">
@@ -275,8 +337,8 @@
                 <div>
                     <h4 class="font-serif font-bold mb-6 text-white" data-i18n="footer_contact">Location</h4>
                     <p class="text-gray-400 text-sm mb-4">Stationsplein 45,<br>3013 AK Rotterdam</p>
-                    <p class="text-gray-400 text-sm">info@dunya-market.com</p>
-                    <p class="text-dunya-light font-bold mt-2">+31 10 123 4567</p>
+                    <p class="text-gray-400 text-sm">dunyahatert@hotmail.com</p>
+                    <p class="text-dunya-light font-bold mt-2">024-35555339</p>
                 </div>
             </div>
             <div class="border-t border-white/5 pt-8 text-center text-xs text-gray-500">
@@ -294,7 +356,7 @@
         }
 
         (function() {
-            const theme = localStorage.getItem('theme');
+            const theme = localStorage.getItem('theme') || 'light';
             if (theme === 'dark') {
                 document.documentElement.classList.remove('light');
             }
@@ -310,7 +372,8 @@
                 val2_t: "Global Sourcing", val2_d: "We bring you authentic brands you can't find elsewhere.",
                 val3_t: "Family Trust", val3_d: "As a family business, we treat every customer like a guest.",
                 footer_desc: "Bringing the flavors of the world to your doorstep. Your trusted partner.",
-                footer_links: "Quick Links", footer_contact: "Location", footer_rights: "© 2024 Dunya Supermarket. All rights reserved."
+                footer_links: "Quick Links", footer_contact: "Location", footer_rights: "© 2024 Dunya Supermarket. All rights reserved.",
+                bulk_service_desc: "Ordering for 2+ weeks? Avoid the search! WhatsApp your list. Just pick up and pay. No advanced payment required."
             },
             nl: {
                 nav_home: "Startpagina", nav_products: "Producten", nav_about: "Over Ons",
@@ -321,7 +384,8 @@
                 val2_t: "Wereldwijde Inkoop", val2_d: "Wij brengen u authentieke merken die u nergens anders vindt.",
                 val3_t: "Familie Vertrouwen", val3_d: "Als familiebedrijf behandelen we elke klant als een gast.",
                 footer_desc: "De smaken van de wereld bij u thuis. Uw vertrouwde partner.",
-                footer_links: "Snelkoppelingen", footer_contact: "Locatie", footer_rights: "© 2024 Dunya Supermarkt. Alle rechten voorbehouden."
+                footer_links: "Snelkoppelingen", footer_contact: "Locatie", footer_rights: "© 2024 Dunya Supermarket. Alle rechten voorbehouden.",
+                bulk_service_desc: "Boodschappen voor 2+ weken? Bestel via WhatsApp! Wij pakken het in, u haalt het op. Geen aanbetaling nodig."
             },
             tr: {
                 nav_home: "Anasayfa", nav_products: "Ürünler", nav_about: "Hakkımızda",
@@ -332,7 +396,8 @@
                 val2_t: "Küresel Tedarik", val2_d: "Başka yerde bulamayacağınız orijinal markaları ayağınıza getiriyoruz.",
                 val3_t: "Aile Güveni", val3_d: "Bir aile işletmesi olarak, her müşterimize misafirimiz gibi davranıyoruz.",
                 footer_desc: "Dünya lezzetlerini kapınıza getiriyoruz. Güvenilir ortağınız.",
-                footer_links: "Hızlı Linkler", footer_contact: "Konum", footer_rights: "© 2024 Dunya Süpermarket. Tüm hakları saklıdır."
+                footer_links: "Hızlı Linkler", footer_contact: "Konum", footer_rights: "© 2024 Dunya Süpermarket. Tüm hakları saklıdır.",
+                bulk_service_desc: "2+ haftalık alışveriş mi? WhatsApp'tan listenizi atın, biz hazırlayalım. Kapıda ödeme, ön ödeme yok!"
             },
             ku: {
                 nav_home: "Sereke", nav_products: "Berhem", nav_about: "Derheqê Me",
@@ -343,7 +408,8 @@
                 val2_t: "Dabînkirina Cîhanî", val2_d: "Em markayên orjînal ên ku hûn li tu derê nabînin tînin.",
                 val3_t: "Baweriya Malbatê", val3_d: "Wek karsaziyek malbatî, em her mişterî wekî mêvan dibînin.",
                 footer_desc: "Tehmên dinyayê li ber deriyê we ne. Hevparê we yê bawerbar.",
-                footer_links: "Lînkên Bilez", footer_contact: "Cîh", footer_rights: "© 2024 Dunya. Maf parastî ne."
+                footer_links: "Lînkên Bilez", footer_contact: "Cîh", footer_rights: "© 2024 Dunya. Maf parastî ne.",
+                bulk_service_desc: "Ji bo 2+ hefteyan kirîn? Bi WhatsAppê lîsteya xwe bişînin. Werin û bidin, pêşekî tune!"
             },
             fr: {
                 nav_home: "Accueil", nav_products: "Produits", nav_about: "À Propos",
@@ -354,7 +420,8 @@
                 val2_t: "Sourcing Mondial", val2_d: "Nous vous proposons des marques authentiques introuvables ailleurs.",
                 val3_t: "Confiance Familiale", val3_d: "Entreprise familiale, nous traitons chaque client comme un invité.",
                 footer_desc: "Les saveurs du monde à votre porte. Votre partenaire de confiance.",
-                footer_links: "Liens Rapides", footer_contact: "Localisation", footer_rights: "© 2024 Dunya. Tous droits réservés."
+                footer_links: "Liens Rapides", footer_contact: "Localisation", footer_rights: "© 2024 Dunya. Tous droits réservés.",
+                bulk_service_desc: "Courses pour 2+ semaines? Commandez via WhatsApp! On prépare tout, vous payez au retrait. Aucun acompte requis."
             },
             es: {
                 nav_home: "Inicio", nav_products: "Productos", nav_about: "Nosotros",
@@ -365,7 +432,8 @@
                 val2_t: "Suministro Global", val2_d: "Traemos marcas auténticas que no encontrará en otro lugar.",
                 val3_t: "Confianza Familiar", val3_d: "Como empresa familiar, tratamos a cada cliente como un invitado.",
                 footer_desc: "Sabores del mundo en su hogar. Su socio de confianza.",
-                footer_links: "Enlaces Rápidos", footer_contact: "Ubicación", footer_rights: "© 2024 Dunya. Todos los derechos reservados."
+                footer_links: "Enlaces Rápidos", footer_contact: "Ubicación", footer_rights: "© 2024 Dunya. Todos los derechos reservados.",
+                bulk_service_desc: "¿Compra para 2+ semanas? Pida por WhatsApp. Nosotros lo preparamos, usted solo paga al recoger. Sin adelantos."
             },
             ar: {
                 nav_home: "الرئيسية", nav_products: "المنتجات", nav_about: "من نحن",
@@ -376,7 +444,8 @@
                 val2_t: "مصادر عالمية", val2_d: "نوفر لك علامات تجارية أصلية لا تجدها في أي مكان آخر.",
                 val3_t: "ثقة العائلة", val3_d: "كعمل تجاري عائلي، نعامل كل عميل كضيف في منزلنا.",
                 footer_desc: "نأتي بنكهات العالم إلى باب منزلك. شريكك الموثوق.",
-                footer_links: "روابط سريعة", footer_contact: "الموقع", footer_rights: "© 2024 دنيا سوبر ماركت. جميع الحقوق محفوظة."
+                footer_links: "روابط سريعة", footer_contact: "الموقع", footer_rights: "© 2024 دنيا سوبر ماركت. جميع الحقوق محفوظة.",
+                bulk_service_desc: "طلب لـ اسبوعين أو أكثر؟ أرسل قائمتك عبر الواتساب. نجهزها لك وتدفع عند الاستلام. لا يشترط الدفع المسبق."
             },
             zz: {
                 nav_home: "Keye", nav_products: "Malun", nav_about: "Ma ser",
@@ -387,7 +456,8 @@
                 val2_t: "Malo Dinya", val2_d: "Ma malê ke caê de çiniyê, şıma rê anê.",
                 val3_t: "İtibarê Malbatî", val3_d: "Zey karê malbatî, ma her kesî rê zey meymani ewnîyênê.",
                 footer_desc: "Tehmê dinya kapiyê şıma de yo. İtibarê şıma yo.",
-                footer_links: "Lînkê Leze", footer_contact: "Ca", footer_rights: "© 2024 Dunya. Heqî amê pawıtene."
+                footer_links: "Lînkê Leze", footer_contact: "Ca", footer_rights: "© 2024 Dunya. Heqî amê pawıtene.",
+                bulk_service_desc: "2+ heftan rê market? WhatsApp ra bınusên. Ma amade kenîme, şıma teyna bıpayerê. Verpê dînayîş çînyo."
             }
         };
 
@@ -402,20 +472,35 @@
             langDropdown.classList.toggle('pointer-events-none');
         });
 
-        window.setLanguage = function(lang) {
-            currentLangText.textContent = lang.toUpperCase();
-            document.documentElement.dir = (lang === 'ar' || lang === 'ku') ? 'rtl' : 'ltr';
+        window.setLanguage = function(langCode) {
+            localStorage.setItem('dunya-language', langCode);
+            currentLangText.textContent = langCode.toUpperCase();
+            document.documentElement.dir = (langCode === 'ar' || langCode === 'ku') ? 'rtl' : 'ltr';
             
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
-                if(translations[lang][key]) el.textContent = translations[lang][key];
+                if(translations[langCode] && translations[langCode][key]) {
+                    // Auto-style "Halal" and add icon
+                    el.innerHTML = translations[langCode][key].replace(/(Halal|Helal|حلال)/gi, '<span class="text-dunya-light inline-flex items-center gap-1 font-bold"><i class="fa-solid fa-certificate text-[10px]"></i> $1</span>');
+                }
+            });
+
+            // Highlight selected option
+            document.querySelectorAll('.lang-option').forEach(el => {
+                const itemLang = el.getAttribute('data-lang');
+                if(itemLang === langCode) {
+                    el.classList.add('lang-active');
+                } else {
+                    el.classList.remove('lang-active');
+                }
             });
 
             langDropdown.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
         };
 
         window.onload = () => {
-            setLanguage('en');
+            const savedLang = localStorage.getItem('dunya-language') || 'en';
+            setLanguage(savedLang);
         };
 
         document.addEventListener('click', () => {
