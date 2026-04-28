@@ -324,6 +324,14 @@
             <button class="category-pill glass-panel px-6 py-2.5 rounded-full whitespace-nowrap text-sm font-medium" onclick="filterCategory(event, 'grocery')" data-i18n="cat_grocery">Grocery</button>
             <button class="category-pill glass-panel px-6 py-2.5 rounded-full whitespace-nowrap text-sm font-medium" onclick="filterCategory(event, 'baklava')" data-i18n="cat_baklava">Baklava</button>
         </div>
+        <!-- Scroll Hint for Mobile -->
+        <div class="flex justify-center mt-2 md:hidden">
+            <p class="text-[9px] uppercase tracking-[0.2em] text-gray-500 flex items-center gap-2 opacity-60" data-i18n="cat_slide_hint">
+                <i class="fa-solid fa-chevron-left animate-pulse"></i>
+                Slide to see more
+                <i class="fa-solid fa-chevron-right animate-pulse"></i>
+            </p>
+        </div>
     </section>
 
     <!-- Product Grid -->
@@ -422,7 +430,8 @@
                 footer_desc: "Bringing the flavors of the world to your doorstep. Your trusted partner for quality groceries.",
                 footer_links: "Quick Links", footer_contact: "Location", footer_rights: "© 2024 Dunya Supermarket. All rights reserved.",
                 bulk_service_desc: "Ordering for 2+ weeks? Avoid the search! WhatsApp your list. Just pick up and pay. No advanced payment required.", // Added for consistency
-                search_placeholder: "Search products...", no_results: "No products found matching your search."
+                search_placeholder: "Search products...", no_results: "No products found matching your search.",
+                cat_slide_hint: "Slide to see more categories"
             },
             nl: {
                 nav_home: "Startpagina", nav_products: "Producten", nav_about: "Over Ons",
@@ -431,7 +440,8 @@
                 footer_desc: "De smaken van de wereld bij u thuis. Uw partner voor kwaliteitsproducten.", footer_links: "Snelkoppelingen", footer_contact: "Locatie", footer_rights: "© 2024 Dunya Supermarket. Alle rechten voorbehouden.",
                 bulk_service_desc: "Boodschappen voor 2+ weken? Bestel via WhatsApp! Wij pakken het in, u haalt het op. Geen aanbetaling nodig.", // Added
                 search_placeholder: "Zoek producten...", // Added
-                no_results: "Geen producten gevonden die overeenkomen met uw zoekopdracht." // Added
+                no_results: "Geen producten gevonden die overeenkomen met uw zoekopdracht.", // Added
+                cat_slide_hint: "Scroll om meer te zien"
             },
             tr: {
                 nav_home: "Anasayfa", nav_products: "Ürünler", nav_about: "Hakkımızda",
@@ -439,7 +449,8 @@
                 footer_desc: "Dünyanın lezzetlerini kapınıza getiriyoruz. Kaliteli alışverişteki güvenilir ortağınız.", footer_links: "Hızlı Linkler", footer_contact: "Konum", footer_rights: "© 2024 Dunya Süpermarket. Tüm hakları saklıdır.",
                 bulk_service_desc: "2+ haftalık alışveriş mi? WhatsApp'tan listenizi atın, biz hazırlayalım. Kapıda ödeme, ön ödeme yok!", // Present, but ensuring consistency
                 search_placeholder: "Ürün ara...", // Added
-                no_results: "Aradığınız ürün bulunamadı." // Added
+                no_results: "Aradığınız ürün bulunamadı.", // Added
+                cat_slide_hint: "Daha fazlası için kaydırın"
             },
             ku: {
                 nav_home: "Sereke", nav_products: "Berhem", nav_about: "Derheqê Me",
@@ -447,7 +458,8 @@
                 footer_desc: "Tehmên dinyayê li ber deriyê we ne. Hevparê we yê bawerbar ji bo kalîteyê.", footer_links: "Lînkên Bilez", footer_contact: "Cîh", footer_rights: "© 2024 Dunya. Maf parastî ne.",
                 bulk_service_desc: "Ji bo 2+ hefteyan kirîn? Bi WhatsAppê lîsteya xwe bişînin. Werin û bidin, pêşekî tune!", // Added
                 search_placeholder: "Berheman bigere...", // Added
-                no_results: "Tu berhem nehatin dîtin." // Added
+                no_results: "Tu berhem nehatin dîtin.", // Added
+                cat_slide_hint: "Ber bi alî ve bikişînin"
             },
             es: {
                 nav_home: "Inicio", nav_products: "Productos", nav_about: "Nosotros",
@@ -455,7 +467,8 @@
                 footer_desc: "Sabores del mundo en su hogar. Calidad y confianza familiar.", footer_links: "Enlaces Rápidos", footer_contact: "Ubicación", footer_rights: "© 2024 Dunya. Todos los derechos reservados.",
                 bulk_service_desc: "¿Compra para 2+ semanas? Pida por WhatsApp. Nosotros lo preparamos, usted solo paga al recoger. Sin adelantos.", // Added
                 search_placeholder: "Buscar productos...", // Added
-                no_results: "No se encontraron productos que coincidan con su búsqueda." // Added
+                no_results: "No se encontraron productos que coincidan con su búsqueda.", // Added
+                cat_slide_hint: "Desliza para ver más"
             },
             ar: {
                 nav_home: "الرئيسية", nav_products: "المنتجات", nav_about: "من نحن",
@@ -463,7 +476,8 @@
                 footer_desc: "نأتي بنكهات العالم إلى باب منزلك. شريكك الموثوق للجودة.", footer_links: "روابط سريعة", footer_contact: "الموقع", footer_rights: "© 2024 دنيا سوبر ماركت. جميع الحقوق محفوظة.",
                 bulk_service_desc: "طلب لـ اسبوعين أو أكثر؟ أرسل قائمتك عبر الواتساب. نجهزها لك وتدفع عند الاستلام. لا يشترط الدفع المسبق.", // Added
                 search_placeholder: "ابحث عن المنتجات...", // Added
-                no_results: "لم يتم العثور على منتجات مطابقة لبحثك." // Added
+                no_results: "لم يتم العثور على منتجات مطابقة لبحثك.", // Added
+                cat_slide_hint: "اسحب لرؤية المزيد"
             },
             fr: {
                 nav_home: "Accueil", nav_products: "Produits", nav_about: "À Propos",
@@ -471,7 +485,8 @@
                 footer_desc: "Les saveurs du monde à votre porte. Votre partenaire de confiance.", footer_links: "Liens Rapides", footer_contact: "Localisation", footer_rights: "© 2024 Dunya. Tous droits réservés.",
                 bulk_service_desc: "Courses pour 2+ semaines? Commandez via WhatsApp! On prépare tout, vous payez au retrait. Aucun acompte requis.",
                 search_placeholder: "Rechercher des produits...",
-                no_results: "Aucun produit trouvé correspondant à votre recherche."
+                no_results: "Aucun produit trouvé correspondant à votre recherche.",
+                cat_slide_hint: "Glissez pour en voir plus"
             },
             zz: {
                 nav_home: "Keye", nav_products: "Malun", nav_about: "Ma ser",
@@ -479,7 +494,8 @@
                 footer_desc: "Tehmê dinya kapiyê şıma de yo. İtibarê şıma yo herdemi.", footer_links: "Lînkê Leze", footer_contact: "Ca", footer_rights: "© 2024 Dunya. Heqî amê pawıtene.",
                 bulk_service_desc: "2+ heftan rê market? WhatsApp ra bınusên. Ma amade kenîme, şıma teyna bıpayerê. Verpê dînayîş çînyo.", // Added
                 search_placeholder: "Berheman biger...", // Added
-                no_results: "Cîyayîşê şıma rê çîyêk nêame dîtin." // Added
+                no_results: "Cîyayîşê şıma rê çîyêk nêame dîtin.", // Added
+                cat_slide_hint: "Kategoriyê bîn bınesnê"
             }
         };
 
