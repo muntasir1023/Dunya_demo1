@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DÜNYA INTERNATIONALE SUPERMARKT</title>
     
+    <link rel="icon" href="https://raw.githubusercontent.com/muntasir1023/Dunya/main/dunya%20logo.png" type="image/png">
+    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/muntasir1023/Dunya/main/dunya%20logo.png">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -154,10 +156,10 @@
         html.light #mobile-menu { background: rgba(255, 255, 255, 0.88) !important; }
 
         /* Bulk Service Banner Style */
-        #bulk-banner {
+        #premium-banner {
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        #bulk-banner:hover {
+        #premium-banner:hover {
             transform: scale(1.02) translateY(-5px);
         }
     </style>
@@ -175,7 +177,7 @@
     <nav class="fixed w-full z-50 glass-nav">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="index.html" class="flex items-center gap-3 py-1 group">
-                <i class="fa-solid fa-cart-shopping text-dunya-light text-xl md:text-2xl drop-shadow-sm"></i>
+                <img src="https://raw.githubusercontent.com/muntasir1023/Dunya/main/dunya%20logo.png" alt="Dunya Logo" width="64" height="64" fetchpriority="high" class="w-12 h-12 md:w-16 md:h-16 rounded-full object-cover border-2 border-dunya-light shadow-lg">
                 <div class="flex flex-col md:flex-row md:items-center text-[15px] md:text-lg lg:text-xl font-black tracking-tight" style="font-family: 'Franklin Gothic Heavy', 'Arial Black', sans-serif;">
                     <span class="text-dunya-light md:mr-4">DÜNYA</span>
                     <div class="flex items-center gap-2 md:gap-4 text-white">
@@ -261,7 +263,7 @@
                 <h1 class="text-5xl md:text-7xl font-serif font-bold text-white mb-8" data-i18n="about_title">Our Story</h1>
                 <div class="glass-panel p-8 md:p-10 rounded-[2.5rem] mb-12">
                     <div class="space-y-6 text-gray-400 text-lg leading-relaxed">
-                        <p data-i18n="about_p1">Founded in 1998, Dunya International Supermarket began with a single mission: to bring the authentic tastes of the world to our local community. What started as a small family shop has grown into a destination for food lovers seeking quality and tradition.</p>
+                        <p data-i18n="about_p1">For the last 25 years, Dunya International Supermarket has been on a single mission: to bring the authentic tastes of the world to our local community. What started as a small family shop has grown into a destination for food lovers seeking quality and tradition.</p>
                         <p data-i18n="about_p2">We specialize in premium halal meats, freshly baked breads, and an unparalleled selection of spices, cheeses, and groceries from across Europe, the Middle East, and beyond.</p>
                     </div>
                 </div>
@@ -321,17 +323,17 @@
         </div>
     </main>
 
-    <!-- Premium Bulk Service Section -->
-    <section class="pb-24 px-6 reveal" id="bulk-banner">
+    <!-- Premium Service Section -->
+    <section class="pb-24 px-6 reveal" id="premium-banner">
         <div class="max-w-4xl mx-auto">
             <div class="glass-panel p-8 md:p-12 rounded-[3rem] border-dunya-main/30 border shadow-2xl relative overflow-hidden text-center">
                 <div class="absolute -top-24 -right-24 w-48 h-48 bg-dunya-main/10 rounded-full blur-3xl"></div>
                 <div class="absolute -bottom-24 -left-24 w-48 h-48 bg-dunya-main/5 rounded-full blur-3xl"></div>
                 
                 <h4 class="text-dunya-light font-bold flex items-center justify-center gap-2 mb-6 text-sm uppercase tracking-widest">
-                    <i class="fa-solid fa-truck-fast"></i> Premium Bulk Service
+                    <i class="fa-solid fa-hand-holding-heart"></i> Premium Service
                 </h4>
-                <p class="text-lg md:text-xl text-gray-200 leading-relaxed mb-8 max-w-2xl mx-auto" data-i18n="bulk_service_desc">
+                <p class="text-lg md:text-xl text-gray-200 leading-relaxed mb-8 max-w-2xl mx-auto" data-i18n="premium_service_desc">
                     Ordering for <b>2+ weeks</b>? Avoid the search! WhatsApp your list to us. Just pick up and pay. <b>No advanced payment required.</b>
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
@@ -349,13 +351,17 @@
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
                 <div class="col-span-1 md:col-span-2">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-12 h-12 rounded-2xl bg-dunya-main flex items-center justify-center">
-                            <i class="fa-solid fa-basket-shopping text-white text-xl"></i>
+                    <a href="index.html" class="flex items-center gap-3 py-1 group mb-6">
+                        <i class="fa-solid fa-cart-shopping text-dunya-light text-xl md:text-2xl drop-shadow-sm"></i>
+                        <div class="flex flex-col md:flex-row md:items-center text-[15px] md:text-lg lg:text-xl font-black tracking-tight" style="font-family: 'Franklin Gothic Heavy', 'Arial Black', sans-serif;">
+                            <span class="text-dunya-light md:mr-4">DÜNYA</span>
+                            <div class="flex items-center gap-2 md:gap-4 text-white">
+                                <span>INTERNATI<i class="fa-solid fa-earth-americas text-blue-400 scale-90 mx-[1px]"></i>NALE</span>
+                                <span>SUPERMARKT</span>
+                            </div>
                         </div>
-                        <span class="text-2xl font-bold font-serif">Dunya Supermarket</span>
-                    </div>
-                    <p class="text-gray-400 mb-8 max-w-md" data-i18n="footer_desc">Bringing the flavors of the world to your doorstep since 1998. Your trusted partner for quality international groceries.</p>
+                    </a>
+                    <p class="text-gray-400 mb-8 max-w-md" data-i18n="footer_desc">Bringing the flavors of the world to our local community for the last 25 years. Your trusted partner for quality international groceries.</p>
                     <div class="flex gap-4">
                         <a href="#" class="w-10 h-10 rounded-full glass-panel flex items-center justify-center hover:bg-dunya-main transition"><i class="fa-brands fa-facebook-f"></i></a>
                         <a href="#" class="w-10 h-10 rounded-full glass-panel flex items-center justify-center hover:bg-dunya-main transition"><i class="fa-brands fa-instagram"></i></a>
@@ -372,7 +378,7 @@
                 </div>
                 <div>
                     <h4 class="font-serif font-bold mb-6 text-white" data-i18n="footer_contact">Location</h4>
-                    <p class="text-gray-400 text-sm mb-4">Stationsplein 45,<br>3013 AK Rotterdam</p>
+                    <p class="text-gray-400 text-sm mb-4">Couwenbergstraat 115,<br>6535 RX Nijmegen</p>
                     <p class="text-gray-400 text-sm">dunyahatert@hotmail.com</p>
                     <p class="text-dunya-light font-bold mt-2">024-3555339</p>
                 </div>
@@ -401,99 +407,99 @@
         const translations = {
             en: {
                 nav_home: "Home", nav_products: "Products", nav_about: "About Us",
-                about_title: "Our Story", about_p1: "Founded in 1998, Dunya International Supermarket began with a single mission: to bring the flavors of the world to our local community.", about_p2: "We specialize in premium halal meats and an unparalleled selection of international groceries.",
+                about_title: "Our Story", about_p1: "For the last 25 years, Dunya International Supermarket has been on a single mission: to bring the flavors of the world to our local community.", about_p2: "We specialize in premium halal meats and an unparalleled selection of international groceries.",
                 stat_years: "Years Experience", stat_products: "Products", stat_halal: "Halal Certified",
                 badge_title: "Quality First", badge_sub: "Awarded Market 2023",
                 val1_t: "Fresh Daily", val1_d: "Our sections are replenished every morning for the highest standards.", // Removed extra space
                 val2_t: "Global Sourcing", val2_d: "We bring you authentic brands you can't find elsewhere.",
                 val3_t: "Family Trust", val3_d: "As a family business, we treat every customer like a guest.",
-                footer_desc: "Bringing the flavors of the world to your doorstep. Your trusted partner.",
+                footer_desc: "Bringing the flavors of the world to our community for the last 25 years. Your trusted partner.",
                 footer_links: "Quick Links", footer_contact: "Location", footer_rights: "© 2026 DÜNYA INTERNATIONALE SUPERMARKT. All rights reserved.",
-                bulk_service_desc: "Ordering for 2+ weeks? Avoid the search! WhatsApp your list. Just pick up and pay. No advanced payment required."
+                premium_service_desc: "Ordering for 2+ weeks? Avoid the search! WhatsApp your list. Just pick up and pay. No advanced payment required."
             },
             nl: {
                 nav_home: "Startpagina", nav_products: "Producten", nav_about: "Over Ons",
-                about_title: "Ons Verhaal", about_p1: "Dunya International Supermarket is opgericht in 1998 met één missie: de smaken van de wereld naar onze gemeenschap brengen.", about_p2: "Wij zijn gespecialiseerd in premium halal vlees en een ongeëvenaarde selectie internationale boodschappen.",
+                about_title: "Ons Verhaal", about_p1: "In de afgelopen 25 jaar heeft Dunya International Supermarket één missie gehad: de smaken van de wereld naar onze gemeenschap brengen.", about_p2: "Wij zijn gespecialiseerd in premium halal vlees en een ongeëvenaarde selectie internationale boodschappen.",
                 stat_years: "Jaar Ervaring", stat_products: "Producten", stat_halal: "Halal Gecertificeerd",
                 badge_title: "Kwaliteit Eerst", badge_sub: "Bekroonde Markt 2023", // Removed extra space
                 val1_t: "Dagelijks Vers", val1_d: "Onze afdelingen worden elke ochtend aangevuld voor de hoogste normen.",
                 val2_t: "Wereldwijde Inkoop", val2_d: "Wij brengen u authentieke merken die u nergens anders vindt.",
                 val3_t: "Familie Vertrouwen", val3_d: "Als familiebedrijf behandelen we elke klant als een gast.",
-                footer_desc: "De smaken van de wereld bij u thuis. Uw vertrouwde partner.",
+                footer_desc: "De smaken van de wereld in onze gemeenschap voor de afgelopen 25 jaar. Uw vertrouwde partner.",
                 footer_links: "Snelkoppelingen", footer_contact: "Locatie", footer_rights: "© 2026 DÜNYA INTERNATIONALE SUPERMARKT. Alle rechten voorbehouden.",
-                bulk_service_desc: "Boodschappen voor 2+ weken? Bestel via WhatsApp! Wij pakken het in, u haalt het op. Geen aanbetaling nodig."
+                premium_service_desc: "Boodschappen voor 2+ weken? Bestel via WhatsApp! Wij pakken het in, u haalt het op. Geen aanbetaling nodig."
             },
             tr: {
                 nav_home: "Anasayfa", nav_products: "Ürünler", nav_about: "Hakkımızda",
-                about_title: "Hikayemiz", about_p1: "1998'de kurulan Dünya Uluslararası Süpermarket, dünyanın lezzetlerini yerel topluluğumuza getirme misyonuyla başladı.", about_p2: "Premium helal etler ve benzersiz uluslararası ürün yelpazesi konusunda uzmanız.",
+                about_title: "Hikayemiz", about_p1: "Son 25 yıldır, Dünya Uluslararası Süpermarket tek bir misyonla yola devam ediyor: dünyanın lezzetlerini yerel topluluğumuza getirmek.", about_p2: "Premium helal etler ve benzersiz uluslararası ürün yelpazesi konusunda uzmanız.",
                 stat_years: "Yıllık Tecrübe", stat_products: "Ürün Çeşidi", stat_halal: "Helal Sertifikalı",
                 badge_title: "Önce Kalite", badge_sub: "Ödüllü Market 2023", // Removed extra space
                 val1_t: "Günlük Taze", val1_d: "En yüksek standartlar için reyonlarımız her sabah tazelenir.",
                 val2_t: "Küresel Tedarik", val2_d: "Başka yerde bulamayacağınız orijinal markaları ayağınıza getiriyoruz.",
                 val3_t: "Aile Güveni", val3_d: "Bir aile işletmesi olarak, her müşterimize misafirimiz gibi davranıyoruz.",
-                footer_desc: "Dünya lezzetlerini kapınıza getiriyoruz. Güvenilir ortağınız.",
+                footer_desc: "Dünya lezzetlerini son 25 yıldır mahallemize sunuyoruz. Güvenilir ortağınız.",
                 footer_links: "Hızlı Linkler", footer_contact: "Konum", footer_rights: "© 2026 DÜNYA INTERNATIONALE SUPERMARKT. Tüm hakları saklıdır.",
-                bulk_service_desc: "2+ haftalık alışveriş mi? WhatsApp'tan listenizi atın, biz hazırlayalım. Kapıda ödeme, ön ödeme yok!"
+                premium_service_desc: "2+ haftalık alışveriş mi? WhatsApp'tan listenizi atın, biz hazırlayalım. Kapıda ödeme, ön ödeme yok!"
             },
             ku: {
                 nav_home: "Sereke", nav_products: "Berhem", nav_about: "Derheqê Me",
-                about_title: "Çîroka Me", about_p1: "Dunya Supermarket di sala 1998'an de bi armancekê dest pê kir: anîna tehmên cîhanê ji bo civaka me.", about_p2: "Em pisporên goştê helal ê premium û berhemên navdewletî ne.",
+                about_title: "Çîroka Me", about_p1: "Dunya Supermarket ji bo 25 salên dawî bi armancekê dest pê kir: anîna tehmên cîhanê ji bo civaka me.", about_p2: "Em pisporên goştê helal ê premium û berhemên navdewletî ne.",
                 stat_years: "Sal Tecribe", stat_products: "Berhem", stat_halal: "Sertîfîkaya Helal",
                 badge_title: "Berî Her Tiştî Kalîte", badge_sub: "Marketa Serketî 2023", // Removed extra space
                 val1_t: "Her Roj Taze", val1_d: "Beşên me her sibeh ji bo standardên herî bilind tên nûkirin.",
                 val2_t: "Dabînkirina Cîhanî", val2_d: "Em markayên orjînal ên ku hûn li tu derê nabînin tînin.",
                 val3_t: "Baweriya Malbatê", val3_d: "Wek karsaziyek malbatî, em her mişterî wekî mêvan dibînin.",
-                footer_desc: "Tehmên dinyayê li ber deriyê we ne. Hevparê we yê bawerbar.",
+                footer_desc: "Tehmên dinyayê ji bo civaka me ji bo 25 salên dawî. Hevparê we yê bawerbar.",
                 footer_links: "Lînkên Bilez", footer_contact: "Cîh", footer_rights: "© 2026 DÜNYA INTERNATIONALE SUPERMARKT. Maf parastî ne.",
-                bulk_service_desc: "Ji bo 2+ hefteyan kirîn? Bi WhatsAppê lîsteya xwe bişînin. Werin û bidin, pêşekî tune!"
+                premium_service_desc: "Ji bo 2+ hefteyan kirîn? Bi WhatsAppê lîsteya xwe bişînin. Werin û bidin, pêşekî tune!"
             },
             fr: {
                 nav_home: "Accueil", nav_products: "Produits", nav_about: "À Propos",
-                about_title: "Notre Histoire", about_p1: "Fondé en 1998, le supermarché international Dunya a commencé avec une mission : apporter les saveurs du monde.", about_p2: "Nous sommes spécialisés dans les viandes halal de qualité et les produits internationaux.",
+                about_title: "Notre Histoire", about_p1: "Depuis 25 ans, le supermarché international Dunya poursuit une seule mission : apporter les saveurs du monde.", about_p2: "Nous sommes spécialisés dans les viandes halal de qualité et les produits internationaux.",
                 stat_years: "Ans d'Expérience", stat_products: "Produits", stat_halal: "Certifié Halal",
                 badge_title: "La Qualité d'Abord", badge_sub: "Marché Primé 2023", // Removed extra space
                 val1_t: "Frais du Jour", val1_d: "Nos rayons sont réapprovisionnés chaque matin pour une fraîcheur maximale.",
                 val2_t: "Sourcing Mondial", val2_d: "Nous vous proposons des marques authentiques introuvables ailleurs.",
                 val3_t: "Confiance Familiale", val3_d: "Entreprise familiale, nous traitons chaque client comme un invité.",
-                footer_desc: "Les saveurs du monde à votre porte. Votre partenaire de confiance.",
+                footer_desc: "Les saveurs du monde pour notre communauté depuis 25 ans. Votre partenaire de confianza.",
                 footer_links: "Liens Rapides", footer_contact: "Localisation", footer_rights: "© 2026 DÜNYA INTERNATIONALE SUPERMARKT. Tous droits réservés.",
-                bulk_service_desc: "Courses pour 2+ semaines? Commandez via WhatsApp! On prépare tout, vous payez au retrait. Aucun acompte requis."
+                premium_service_desc: "Courses pour 2+ semaines? Commandez via WhatsApp! On prépare tout, vous payez au retrait. Aucun acompte requis."
             },
             es: {
                 nav_home: "Inicio", nav_products: "Productos", nav_about: "Nosotros",
-                about_title: "Nuestra Historia", about_p1: "Fundado en 1998, el Supermercado Internacional Dunya comenzó con una misión: traer sabores del mundo.", about_p2: "Nos especializamos en carnes halal premium y una selección única de productos internacionales.",
+                about_title: "Nuestra Historia", about_p1: "Por los últimos 25 años, el Supermercado Internacional Dunya ha tenido una sola misión: traer sabores del mundo.", about_p2: "Nos especializamos en carnes halal premium y una selección única de productos internacionales.",
                 stat_years: "Años de Experiencia", stat_products: "Productos", stat_halal: "Certificado Halal",
                 badge_title: "Calidad Primero", badge_sub: "Mercado Galardonado 2023", // Removed extra space
                 val1_t: "Fresco a Diario", val1_d: "Nuestras secciones se reponen cada mañana para garantizar calidad.",
                 val2_t: "Suministro Global", val2_d: "Traemos marcas auténticas que no encontrará en otro lugar.",
                 val3_t: "Confianza Familiar", val3_d: "Como empresa familiar, tratamos a cada cliente como un invitado.",
-                footer_desc: "Sabores del mundo en su hogar. Su socio de confianza.",
+                footer_desc: "Sabores del mundo en nuestra comunidad por los últimos 25 años. Su socio de confianza.",
                 footer_links: "Enlaces Rápidos", footer_contact: "Ubicación", footer_rights: "© 2026 DÜNYA INTERNATIONALE SUPERMARKT. Todos los derechos reservados.",
-                bulk_service_desc: "¿Compra para 2+ semanas? Pida por WhatsApp. Nosotros lo preparamos, usted solo paga al recoger. Sin adelantos."
+                premium_service_desc: "¿Compra para 2+ semanas? Pida por WhatsApp. Nosotros lo preparamos, usted solo paga al recoger. Sin adelantos."
             },
             ar: {
                 nav_home: "الرئيسية", nav_products: "المنتجات", nav_about: "من نحن",
-                about_title: "قصتنا", about_p1: "تأسس دنيا سوبر ماركت عام 1998 بمهمة واحدة: جلب نكهات العالم إلى مجتمعنا المحلي.", about_p2: "نحن متخصصون في اللحوم الحلال الممتازة ومجموعة لا مثيل لها من البقالة الدولية.",
+                about_title: "قصتنا", about_p1: "على مدار الـ 25 عاماً الماضية، كان لدى دنيا سوبر ماركت مهمة واحدة: جلب نكهات العالم إلى مجتمعنا المحلي.", about_p2: "نحن متخصصون في اللحوم الحلال الممتازة ومجموعة لا مثيل لها من البقالة الدولية.",
                 stat_years: "عام من الخبرة", stat_products: "منتج", stat_halal: "شهادة حلال",
                 badge_title: "الجودة أولاً", badge_sub: "سوبر ماركت متميز 2023", // Removed extra space
                 val1_t: "طازج يومياً", val1_d: "يتم تجديد أقسامنا كل صباح لضمان أعلى المعايير.",
                 val2_t: "مصادر عالمية", val2_d: "نوفر لك علامات تجارية أصلية لا تجدها في أي مكان آخر.",
                 val3_t: "ثقة العائلة", val3_d: "كعمل تجاري عائلي، نعامل كل عميل كضيف في منزلنا.",
-                footer_desc: "نأتي بنكهات العالم إلى باب منزلك. شريكك الموثوق.",
+                footer_desc: "نقدم نكهات العالم لمجتمعنا على مدار الـ 25 عاماً الماضية. شريكك الموثوق.",
                 footer_links: "روابط سريعة", footer_contact: "الموقع", footer_rights: "© 2026 DÜNYA INTERNATIONALE SUPERMARKT. جميع الحقوق محفوظة.",
-                bulk_service_desc: "طلب لـ اسبوعين أو أكثر؟ أرسل قائمتك عبر الواتساب. نجهزها لك وتدفع عند الاستلام. لا يشترط الدفع المسبق."
+                premium_service_desc: "طلب لـ اسبوعين أو أكثر؟ أرسل قائمتك عبر الواتساب. نجهزها لك وتدفع عند الاستلام. لا يشترط الدفع المسبق."
             },
             zz: {
                 nav_home: "Keye", nav_products: "Malun", nav_about: "Ma ser",
-                about_title: "Hêkata Ma", about_p1: "1998 de Dinya Supermarket bi yew waştene dest pê kerd: Tehmê dinya bîyarê şıma ver.", about_p2: "Ma goştê helalî û malê dinya de weş ê.",
+                about_title: "Hêkata Ma", about_p1: "25 serra peyêne de, Dinya Supermarket bi yew waştene dest pê kerd: Tehmê dinya bîyarê şıma ver.", about_p2: "Ma goştê helalî û malê dinya de weş ê.",
                 stat_years: "Serre Tecribe", stat_products: "Malî", stat_halal: "Sertîfîkaya Helalî",
                 badge_title: "Verê Kalîte", badge_sub: "Marketa Serkete 2023", // Removed extra space
                 val1_t: "Her Roj Taze", val1_d: "Reyonê ma her sabah taze benê.",
                 val2_t: "Malo Dinya", val2_d: "Ma malê ke caê de çiniyê, şıma rê anê.",
                 val3_t: "İtibarê Malbatî", val3_d: "Zey karê malbatî, ma her kesî rê zey meymani ewnîyênê.",
-                footer_desc: "Tehmê dinya kapiyê şıma de yo. İtibarê şıma yo.",
+                footer_desc: "25 serra peyêne de tehmê dinya ma de estê. İtibarê şıma yo.",
                 footer_links: "Lînkê Leze", footer_contact: "Ca", footer_rights: "© 2026 DÜNYA INTERNATIONALE SUPERMARKT. Heqî amê pawıtene.",
-                bulk_service_desc: "2+ heftan rê market? WhatsApp ra bınusên. Ma amade kenîme, şıma teyna bıpayerê. Verpê dînayîş çînyo."
+                premium_service_desc: "2+ heftan rê market? WhatsApp ra bınusên. Ma amade kenîme, şıma teyna bıpayerê. Verpê dînayîş çînyo."
             }
         };
 
