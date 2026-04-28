@@ -224,6 +224,14 @@
 
         html.light .theme-switch-handle { transform: translateX(24px); }
         html.light .lang-option:hover { background-color: rgba(0,0,0,0.05); }
+
+        /* Bulk Service Banner Style */
+        #bulk-banner {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        #bulk-banner:hover {
+            transform: scale(1.02) translateY(-5px);
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-dunya-main selection:text-white">
@@ -286,7 +294,7 @@
                             <li><button onclick="setLanguage('ku')" class="w-full text-left px-4 py-2 hover:bg-white/10 hover:text-white transition lang-option" data-lang="ku">Kurdî (KU)</button></li>
                             <li><button onclick="setLanguage('es')" class="w-full text-left px-4 py-2 hover:bg-white/10 hover:text-white transition lang-option" data-lang="es">Español (ES)</button></li>
                             <li><button onclick="setLanguage('ar')" class="w-full text-left px-4 py-2 hover:bg-white/10 hover:text-white transition lang-option" data-lang="ar">العربية (AR)</button></li>
-                            <li><button onclick="setLanguage('zza')" class="w-full text-left px-4 py-2 hover:bg-white/10 hover:text-white transition lang-option" data-lang="zza">Zazaki (ZZA)</button></li>
+                            <li><button onclick="setLanguage('zz')" class="w-full text-left px-4 py-2 hover:bg-white/10 hover:text-white transition lang-option" data-lang="zz">Zazaki (ZZ)</button></li>
                         </ul>
                     </div>
                 </div>
@@ -309,7 +317,7 @@
             <a href="aboutus.html" class="text-2xl font-bold text-gray-300" data-i18n="nav_about">About Us</a>
             
             <div class="flex items-center gap-3 glass-panel px-6 py-3 rounded-full" onclick="toggleTheme()">
-                <span class="text-sm font-medium">Switch Theme</span>
+                <span class="text-sm font-medium text-white">Switch Theme</span>
                 <div class="theme-switch-container">
                     <div class="theme-switch-handle"></div>
                     <i class="fa-solid fa-moon text-[10px] text-dunya-light"></i>
@@ -318,13 +326,13 @@
             </div>
 
             <div class="flex flex-wrap justify-center gap-4 mt-4 px-6">
-                <button onclick="setLanguage('en'); toggleMobileMenu();" class="glass-panel px-4 py-2 rounded-lg text-sm">EN</button>
-                <button onclick="setLanguage('nl'); toggleMobileMenu();" class="glass-panel px-4 py-2 rounded-lg text-sm">NL</button>
-                <button onclick="setLanguage('tr'); toggleMobileMenu();" class="glass-panel px-4 py-2 rounded-lg text-sm">TR</button>
-                <button onclick="setLanguage('ku'); toggleMobileMenu();" class="glass-panel px-4 py-2 rounded-lg text-sm">KU</button>
-                <button onclick="setLanguage('es'); toggleMobileMenu();" class="glass-panel px-4 py-2 rounded-lg text-sm">ES</button>
-                <button onclick="setLanguage('ar'); toggleMobileMenu();" class="glass-panel px-4 py-2 rounded-lg text-sm">AR</button>
-                <button onclick="setLanguage('zza'); toggleMobileMenu();" class="glass-panel px-4 py-2 rounded-lg text-sm">ZZA</button>
+                <button onclick="setLanguage('en'); toggleMobileMenu();" class="glass-panel px-4 py-2 rounded-lg text-sm lang-option" data-lang="en">EN</button>
+                <button onclick="setLanguage('nl'); toggleMobileMenu();" class="glass-panel px-4 py-2 rounded-lg text-sm lang-option" data-lang="nl">NL</button>
+                <button onclick="setLanguage('tr'); toggleMobileMenu();" class="glass-panel px-4 py-2 rounded-lg text-sm lang-option" data-lang="tr">TR</button>
+                <button onclick="setLanguage('ku'); toggleMobileMenu();" class="glass-panel px-4 py-2 rounded-lg text-sm lang-option" data-lang="ku">KU</button>
+                <button onclick="setLanguage('es'); toggleMobileMenu();" class="glass-panel px-4 py-2 rounded-lg text-sm lang-option" data-lang="es">ES</button>
+                <button onclick="setLanguage('ar'); toggleMobileMenu();" class="glass-panel px-4 py-2 rounded-lg text-sm lang-option" data-lang="ar">AR</button>
+                <button onclick="setLanguage('zz'); toggleMobileMenu();" class="glass-panel px-4 py-2 rounded-lg text-sm lang-option" data-lang="zz">ZZ</button>
             </div>
         </div>
     </nav>
@@ -343,12 +351,12 @@
 
             <!-- Main Headline (Using Serif for a premium organic feel) -->
             <h1 class="text-6xl md:text-8xl font-serif font-bold mb-6 leading-tight text-white drop-shadow-2xl">
-                <span class="block" data-i18n="hero_title1">The World In</span>
-                <span class="block text-transparent bg-clip-text bg-gradient-to-r from-dunya-light to-dunya-main" data-i18n="hero_title2">Your Neighborhood.</span>
+                <span class="block" data-i18n="hero_title1"> HAVE A </span>
+                <span class="block text-transparent bg-clip-text bg-gradient-to-r from-dunya-light to-dunya-main" data-i18n="hero_title2"> SWEEEET DAY !!! </span>
             </h1>
             
             <p class="text-lg md:text-xl text-gray-200 font-bold max-w-2xl mx-auto mb-10 leading-relaxed drop-shadow-md" data-i18n="hero_desc">
-                25 years of trust in Nijmegen. Premium quality, 99% Halal assurance, and a family where no discrimination exists. Fresh food from every corner of the globe.
+                25 years of trust in Nijmegen. Premium quality, 99% Halal assurance, and a family where everyone is always welcome. Fresh food from every corner of the globe.
             </p>
 
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -360,7 +368,7 @@
             
             <div class="mt-16 flex flex-wrap justify-center gap-6 text-sm text-gray-300 font-medium">
                 <div class="flex items-center gap-2 glass-panel px-4 py-2 rounded-full"><i class="fa-solid fa-location-dot text-dunya-light"></i> Nijmegen, NL</div>
-                <div class="flex items-center gap-2 glass-panel px-4 py-2 rounded-full"><i class="fa-solid fa-certificate text-dunya-light"></i> 99% Halal</div>
+                <div class="flex items-center gap-2 glass-panel px-4 py-2 rounded-full"><i class="fa-solid fa-certificate text-dunya-light"></i> 99% <span class="text-dunya-light">Halal</span></div>
                 <div class="flex items-center gap-2 glass-panel px-4 py-2 rounded-full"><i class="fa-solid fa-heart text-dunya-light"></i> Family Owned</div>
             </div>
         </div>
@@ -449,6 +457,29 @@
         </div>
     </section>
 
+    <!-- Premium Bulk Service Section -->
+    <section class="py-12 px-6 reveal" id="bulk-banner">
+        <div class="max-w-4xl mx-auto">
+            <div class="glass-panel p-8 md:p-12 rounded-[3rem] border-dunya-main/30 border shadow-2xl relative overflow-hidden text-center">
+                <div class="absolute -top-24 -right-24 w-48 h-48 bg-dunya-main/10 rounded-full blur-3xl"></div>
+                <div class="absolute -bottom-24 -left-24 w-48 h-48 bg-dunya-main/5 rounded-full blur-3xl"></div>
+                
+                <h4 class="text-dunya-light font-bold flex items-center justify-center gap-2 mb-6 text-sm uppercase tracking-widest">
+                    <i class="fa-solid fa-truck-fast"></i> Premium Bulk Service
+                </h4>
+                <p class="text-lg md:text-xl text-gray-200 leading-relaxed mb-8 max-w-2xl mx-auto" data-i18n="bulk_service_desc">
+                    Ordering for <b>2+ weeks</b>? Avoid the search! WhatsApp your list to us. Just pick up and pay. <b>No advanced payment required.</b>
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="https://wa.me/312435555339" class="bg-dunya-main text-white px-8 py-3 rounded-full font-bold flex items-center justify-center gap-2 hover:brightness-110 transition shadow-lg shadow-dunya-main/20">
+                        <i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp Order
+                    </a>
+                    <a href="tel:02435555339" class="glass-panel text-white px-8 py-3 rounded-full font-bold hover:bg-white/10 transition">Call 024-35555339</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- About Snippet -->
     <section class="py-20 px-6 relative z-10">
         <div class="max-w-7xl mx-auto glass-panel rounded-[3rem] overflow-hidden reveal border border-white/10">
@@ -462,7 +493,7 @@
                     <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel text-xs font-bold uppercase tracking-widest text-dunya-light mb-6 self-start">
                         <i class="fa-solid fa-users"></i> Family Since 1999
                     </div>
-                    <h2 class="text-3xl md:text-4xl font-serif font-bold mb-6 text-white" data-i18n="about_title">No Discrimination. Just Good Food.</h2>
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold mb-6 text-white" data-i18n="about_title">A Warm Welcome. Just Good Food.</h2>
                     <p class="text-gray-300 mb-6 leading-relaxed" data-i18n="about_desc">
                         Our goal is simple: a smile, kindness, and exceptional service. Kids who visited us in strollers 25 years ago are now shopping here for their own families. We speak your language and we stock your home's flavors.
                     </p>
@@ -475,41 +506,41 @@
     </section>
 
     <!-- Footer -->
-    <footer class="relative z-10 glass-nav border-t border-white/10 pt-16 pb-8 px-6 mt-20">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 text-center md:text-left">
-            
-            <div>
-                <a href="index.html" class="flex items-center justify-center md:justify-start gap-3 mb-6">
-                    <i class="fa-solid fa-basket-shopping text-dunya-light text-2xl"></i>
-                    <span class="text-2xl font-bold text-white">Dunya</span>
-                </a>
-                <p class="text-gray-400 text-sm max-w-sm mx-auto md:mx-0" data-i18n="footer_desc">
-                    More than a supermarket. A family-like hub in Nijmegen offering the best 99% halal meats and global products.
-                </p>
-            </div>
-
-            <div>
-                <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-sm">Visit Us</h4>
-                <p class="text-gray-400 text-sm mb-2"><i class="fa-solid fa-location-dot text-dunya-light mr-2"></i> Couwenbergstraat 115</p>
-                <p class="text-gray-400 text-sm mb-4">Nijmegen, Netherlands</p>
-                <a href="https://maps.app.goo.gl/e5uDW2CzdX6iHZaQ9" target="_blank" class="text-dunya-light text-sm hover:underline"><i class="fa-solid fa-map"></i> Google Maps</a>
-            </div>
-
-            <div>
-                <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-sm">Contact</h4>
-                <p class="text-gray-400 text-sm mb-4" data-i18n="footer_contact">Looking for a specific item? We can order it for you to pick up in-shop.</p>
-                <div class="flex justify-center md:justify-start gap-4">
-                    <a href="#" class="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-white hover:bg-dunya-main transition"><i class="fa-brands fa-whatsapp"></i></a>
-                    <a href="#" class="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-white hover:bg-dunya-main transition"><i class="fa-brands fa-facebook-f"></i></a>
+    <footer class="glass-nav border-t border-white/10 pt-20 pb-10 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 rounded-2xl bg-dunya-main flex items-center justify-center">
+                            <i class="fa-solid fa-basket-shopping text-white text-xl"></i>
+                        </div>
+                        <span class="text-2xl font-bold font-serif">Dunya Supermarket</span>
+                    </div>
+                    <p class="text-gray-400 mb-8 max-w-md" data-i18n="footer_desc">Bringing the flavors of the world to your doorstep since 1998. Your trusted partner for quality international groceries.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full glass-panel flex items-center justify-center hover:bg-dunya-main transition"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full glass-panel flex items-center justify-center hover:bg-dunya-main transition"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full glass-panel flex items-center justify-center hover:bg-dunya-main transition"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-serif font-bold mb-6 text-white" data-i18n="footer_links">Quick Links</h4>
+                    <ul class="space-y-4 text-gray-400 text-sm">
+                        <li><a href="index.html" class="hover:text-dunya-light transition" data-i18n="nav_home">Home</a></li>
+                        <li><a href="items.html" class="hover:text-dunya-light transition" data-i18n="nav_products">Products</a></li>
+                        <li><a href="aboutus.html" class="hover:text-dunya-light transition" data-i18n="nav_about">About Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-serif font-bold mb-6 text-white" data-i18n="footer_contact">Location</h4>
+                    <p class="text-gray-400 text-sm mb-4">Stationsplein 45,<br>3013 AK Rotterdam</p>
+                    <p class="text-gray-400 text-sm">dunyahatert@hotmail.com</p>
+                    <p class="text-dunya-light font-bold mt-2">024-35555339</p>
                 </div>
             </div>
-
-        </div>
-        
-        <div class="max-w-7xl mx-auto border-t border-white/10 pt-8 text-center">
-            <p class="text-gray-500 text-xs">
-                &copy; <span id="year"></span> Dunya International Supermarket.
-            </p>
+            <div class="border-t border-white/5 pt-8 text-center text-xs text-gray-500">
+                <p data-i18n="footer_rights">© 2024 Dunya International Supermarket. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
@@ -534,122 +565,130 @@
             en: {
                 nav_home: "Home", nav_products: "Products", nav_about: "About Us",
                 btn_explore: "Explore",
-                hero_title1: "The World In", hero_title2: "Your Neighborhood.",
-                hero_desc: "25 years of trust in Nijmegen. Premium quality, 99% Halal assurance, and a family where no discrimination exists. Fresh food from every corner of the globe.",
+                hero_title1: " HAVE A ", hero_title2: " SWEEEET DAY !!! ",
+                hero_desc: "25 years of trust in Nijmegen. Premium quality, 99% Halal assurance, and a family where everyone is always welcome. Fresh food from every corner of the globe.",
                 btn_products: "View Products", btn_story: "Read Our Story",
                 cat_subtitle: "Our Departments", cat_title: "Fresh & Authentic",
                 cat_meat: "The Butcher", cat_meat_desc: "Known as the best meat and chicken in the Gelderland region. 99% Halal certified, cut fresh daily.",
                 cat_pantry: "Global Pantry", cat_pantry_desc: "Products spanning the Balkans, Asia, and Africa. If you miss a taste from home, we have it.",
                 cat_bakery: "Fresh Bakery", cat_bakery_desc: "Authentic Turkish breads, sweet baklava, and daily fresh pastries. Baked with perfection.",
-                about_title: "No Discrimination. Just Good Food.",
+                about_title: "A Warm Welcome. Just Good Food.",
                 about_desc: "Our goal is simple: a smile, kindness, and exceptional service. Kids who visited us in strollers 25 years ago are now shopping here for their own families. We speak your language and we stock your home's flavors.",
-                footer_desc: "More than a supermarket. A family-like hub in Nijmegen offering the best halal meats and global products.",
-                footer_contact: "Looking for a specific item? We can order it for you to pick up in-shop."
+                footer_desc: "Bringing the flavors of the world to your doorstep since 1998. Your trusted partner for quality international groceries.",
+                footer_links: "Quick Links", footer_contact: "Location", footer_rights: "© 2024 Dunya International Supermarket. All rights reserved.",
+                bulk_service_desc: "Ordering for 2+ weeks? Avoid the search! WhatsApp your list. Just pick up and pay. No advanced payment required."
             },
             nl: {
                 nav_home: "Startpagina", nav_products: "Producten", nav_about: "Over Ons",
                 btn_explore: "Ontdek",
-                hero_title1: "De Wereld In", hero_title2: "Jouw Buurt.",
-                hero_desc: "25 jaar vertrouwen in Nijmegen. Premium kwaliteit, 99% Halal garantie, en een familie zonder discriminatie. Vers voedsel uit elke hoek van de wereld.",
+                hero_title1: " HEB EEN ", hero_title2: " FIJNE DAG !!! ",
+                hero_desc: "25 jaar vertrouwen in Nijmegen. Premium kwaliteit, 99% Halal garantie, en een familie waar iedereen welkom is. Vers voedsel uit elke hoek van de wereld.",
                 btn_products: "Bekijk Producten", btn_story: "Lees Ons Verhaal",
                 cat_subtitle: "Onze Afdelingen", cat_title: "Vers & Authentiek",
                 cat_meat: "De Slagerij", cat_meat_desc: "Bekend als het beste vlees en kip in de regio Gelderland. 99% Halal gecertificeerd, dagelijks vers gesneden.",
                 cat_pantry: "Wereldse Boodschappen", cat_pantry_desc: "Producten uit de Balkan, Azië en Afrika. Als je de smaak van thuis mist, hebben wij het.",
                 cat_bakery: "Verse Bakkerij", cat_bakery_desc: "Authentiek Turks brood, zoete baklava en dagelijks verse gebakjes. Met perfectie gebakken.",
-                about_title: "Geen Discriminatie. Gewoon Goed Eten.",
+                about_title: "Een Warm Welkom. Gewoon Goed Eten.",
                 about_desc: "Ons doel is simpel: een glimlach, vriendelijkheid en uitzonderlijke service. Kinderen die 25 jaar geleden in kinderwagens kwamen, winkelen hier nu voor hun eigen gezin.",
-                footer_desc: "Meer dan een supermarkt. Een familie-achtige hub in Nijmegen met het beste halal vlees en wereldse producten.",
-                footer_contact: "Op zoek naar een specifiek item? Wij kunnen het voor u bestellen om op te halen."
+                footer_desc: "De smaken van de wereld bij u thuis sinds 1998. Uw partner voor kwaliteitsproducten.",
+                footer_links: "Snelkoppelingen", footer_contact: "Locatie", footer_rights: "© 2024 Dunya International Supermarket. Alle rechten voorbehouden.",
+                bulk_service_desc: "Boodschappen voor 2+ weken? Bestel via WhatsApp! Wij pakken het in, u haalt het op. Geen aanbetaling nodig."
             },
             tr: {
                 nav_home: "Ana Sayfa", nav_products: "Ürünler", nav_about: "Hakkımızda",
                 btn_explore: "Keşfet",
-                hero_title1: "Dünyanın Lezzeti", hero_title2: "Mahallenizde.",
-                hero_desc: "Nijmegen'de 25 yıllık güven. Premium kalite, %99 Helal güvencesi ve ayrımcılığın olmadığı bir aile. Dünyanın her köşesinden taze gıda.",
+                hero_title1: " TATLI BİR ", hero_title2: " GÜN DİLERİZ !!! ",
+                hero_desc: "Nijmegen'de 25 yıllık güven. Premium kalite, %99 Helal güvencesi ve herkesin sevgiyle karşılandığı bir aile. Dünyanın her köşesinden taze gıda.",
                 btn_products: "Ürünleri Gör", btn_story: "Hikayemizi Oku",
                 cat_subtitle: "Reyonlarımız", cat_title: "Taze ve Otantik",
                 cat_meat: "Kasap", cat_meat_desc: "Gelderland bölgesindeki en iyi et ve tavuk olarak bilinir. %99 Helal sertifikalı, günlük taze kesim.",
                 cat_pantry: "Dünya Marketi", cat_pantry_desc: "Balkanlar, Asya ve Afrika'ya uzanan ürünler. Memleketinizin tadını özlediyseniz, bizde var.",
                 cat_bakery: "Taze Fırın", cat_bakery_desc: "Otantik Türk ekmekleri, tatlı baklava ve günlük taze hamur işleri. Mükemmellikle pişirilir.",
-                about_title: "Ayrımcılık Yok. Sadece İyi Yemek.",
+                about_title: "Sıcak Bir Karşılama. Sadece İyi Yemek.",
                 about_desc: "Amacımız basit: bir gülümseme, nezaket ve olağanüstü hizmet. 25 yıl önce bebek arabasıyla gelen çocuklar şimdi kendi aileleri için alışveriş yapıyor.",
-                footer_desc: "Bir süpermarketten daha fazlası. Nijmegen'de en iyi helal etleri ve küresel ürünleri sunan aile sıcaklığında bir merkez.",
-                footer_contact: "Özel bir ürün mü arıyorsunuz? Sizin için sipariş edip dükkandan teslim almanızı sağlayabiliriz."
+                footer_desc: "Dünya lezzetlerini 1998'den beri kapınıza getiriyoruz. Güvenilir ortağınız.",
+                footer_links: "Hızlı Linkler", footer_contact: "Konum", footer_rights: "© 2024 Dunya International Supermarket. Tüm hakları saklıdır.",
+                bulk_service_desc: "2+ haftalık alışveriş mi? WhatsApp'tan listenizi atın, biz hazırlayalım. Kapıda ödeme, ön ödeme yok!"
             },
             fr: {
                 nav_home: "Accueil", nav_products: "Produits", nav_about: "À Propos",
                 btn_explore: "Explorer",
-                hero_title1: "Le Monde Dans", hero_title2: "Votre Quartier.",
-                hero_desc: "25 ans de confiance à Nimègue. Qualité premium, 99% Halal, et une famille sans discrimination. Des aliments frais du monde entier.",
+                hero_title1: " PASSEZ UNE ", hero_title2: " DOUCE JOURNÉE !!! ",
+                hero_desc: "25 ans de confiance à Nimègue. Qualité premium, 99% Halal, et une famille où tout le monde est le bienvenu. Des aliments frais du monde entier.",
                 btn_products: "Voir les Produits", btn_story: "Notre Histoire",
                 cat_subtitle: "Nos Rayons", cat_title: "Frais et Authentique",
                 cat_meat: "La Boucherie", cat_meat_desc: "Connue comme la meilleure viande de la région. Certifiée 99% Halal, coupée fraîche tous les jours.",
                 cat_pantry: "Épicerie du Monde", cat_pantry_desc: "Produits des Balkans, d'Asie et d'Afrique. Le goût de la maison est ici.",
                 cat_bakery: "Boulangerie Fraîche", cat_bakery_desc: "Pains turcs authentiques, baklavas et pâtisseries fraîches tous les jours.",
-                about_title: "Pas de Discrimination. Juste de la Bonne Nourriture.",
+                about_title: "Un Accueil Chaleureux. Juste de la Bonne Nourriture.",
                 about_desc: "Notre objectif : un sourire, de la gentillesse et un service exceptionnel. Les enfants venus en poussette il y a 25 ans font maintenant leurs courses ici.",
-                footer_desc: "Plus qu'un supermarché. Un centre familial à Nimègue offrant les meilleures viandes halal et produits du monde.",
-                footer_contact: "Vous cherchez un article spécifique ? Nous pouvons le commander pour vous."
+                footer_desc: "Les saveurs du monde à votre porte depuis 1998. Votre partenaire de confiance.",
+                footer_links: "Liens Rapides", footer_contact: "Localisation", footer_rights: "© 2024 Dunya International Supermarket. Tous droits réservés.",
+                bulk_service_desc: "Courses pour 2+ semaines? Commandez via WhatsApp! On prépare tout, vous payez au retrait. Aucun acompte requis."
             },
             ku: {
                 nav_home: "Destpêk", nav_products: "Berhem", nav_about: "Derbarê Me",
                 btn_explore: "Lêgerîn",
-                hero_title1: "Cîhan li", hero_title2: "Taxa We.",
-                hero_desc: "25 salên baweriyê li Nijmegenê. Kalîteya bilind, 99% garantiya Helal, û malbatek bê cudakarî. Xwarinên nû ji her derê cîhanê.",
+                hero_title1: " ROJEKE ", hero_title2: " ŞÊRÎN !!! ",
+                hero_desc: "25 salên baweriyê li Nijmegenê. Kalîteya bilind, 99% garantiya Helal, û malbatek ku her kes lê tê pêşwazîkirin. Xwarinên nû ji her derê cîhanê.",
                 btn_products: "Berheman Bibîne", btn_story: "Çîroka Me Bixwîne",
                 cat_subtitle: "Beşên Me", cat_title: "Nû û Orjînal",
                 cat_meat: "Qesab", cat_meat_desc: "Di herêma Gelderland de wekî goşt û mirîşka herî baş tê naskirin. 99% sertîfîkaya Helal, her roj nû tê birîn.",
                 cat_pantry: "Marketa Cîhanê", cat_pantry_desc: "Berhemên ji Balkan, Asya û Afrîkayê. Ger hûn bêriya tama welat dikin, li cem me heye.",
                 cat_bakery: "Firina Nû", cat_bakery_desc: "Nanên tirkî yên orjînal, baqlawaya şîrîn û şîraniyên nû yên rojane. Bi bêkêmahî hatî pijandin.",
-                about_title: "Cudakarî Tune. Tenê Xwarina Baş.",
+                about_title: "Bi xêr hatineke germ. Tenê Xwarina Baş.",
                 about_desc: "Armanca me hêsan e: kenek, dilovanî û xizmetek awarte. Zarokên ku beriya 25 salan bi erebokên zarokan dihatin, niha ji bo malbatên xwe li vir kirîna dikin.",
-                footer_desc: "Ji supermarketekê bêtir. Navendek mîna malbatê li Nijmegenê ku goştên herî baş ên helal û berhemên cîhanî pêşkêş dike.",
-                footer_contact: "Li tiştekî taybet digerin? Em dikarin ji we re sipariş bidin."
+                footer_desc: "Tehmên dinyayê li ber deriyê we ne ji sala 1998'an ve. Hevparê we yê bawerbar.",
+                footer_links: "Lînkên Bilez", footer_contact: "Cîh", footer_rights: "© 2024 Dunya International Supermarket. Maf parastî ne.",
+                bulk_service_desc: "Ji bo 2+ hefteyan kirîn? Bi WhatsAppê lîsteya xwe bişînin. Werin û bidin, pêşekî tune!"
             },
             es: {
                 nav_home: "Inicio", nav_products: "Productos", nav_about: "Nosotros",
                 btn_explore: "Explorar",
-                hero_title1: "El Mundo en", hero_title2: "Tu Vecindario.",
-                hero_desc: "25 años de confianza en Nijmegen. Calidad premium, 99% garantía Halal y una familia sin discriminación. Comida fresca de todos los rincones del mundo.",
+                hero_title1: " ¡TEN UN ", hero_title2: " DULCE DÍA! !!! ",
+                hero_desc: "25 años de confianza en Nijmegen. Calidad premium, 99% garantía Halal y una familia donde todos son bienvenidos. Comida fresca de todos los rincones del mundo.",
                 btn_products: "Ver Productos", btn_story: "Nuestra Historia",
                 cat_subtitle: "Nuestros Departamentos", cat_title: "Fresco y Auténtico",
                 cat_meat: "La Carnicería", cat_meat_desc: "Conocida como la mejor carne y pollo de la región de Gelderland. Certificado 99% Halal, cortado fresco a diario.",
                 cat_pantry: "Despensa Global", cat_pantry_desc: "Productos de los Balcanes, Asia y África. Si extrañas el sabor de tu hogar, lo tenemos.",
                 cat_bakery: "Panadería Fresca", cat_bakery_desc: "Panes turcos auténticos, baklava dulce y pasteles frescos diarios. Horneados a la perfección.",
-                about_title: "Sin Discriminación. Solo Buena Comida.",
+                about_title: "Una Cálida Bienvenida. Solo Buena Comida.",
                 about_desc: "Nuestro objetivo es simple: una sonrisa, amabilidad y un servicio excepcional. Niños que nos visitaban en cochecitos hace 25 años ahora compran aquí para sus propias familias.",
-                footer_desc: "Más que un supermercado. Un centro familiar en Nijmegen que ofrece las mejores carnes halal y productos globales.",
-                footer_contact: "¿Buscas algo específico? Podemos pedirlo para que lo recojas en la tienda."
+                footer_desc: "Sabores del mundo en su hogar desde 1998. Su socio de confianza.",
+                footer_links: "Enlaces Rápidos", footer_contact: "Ubicación", footer_rights: "© 2024 Dunya International Supermarket. Todos los derechos reservados.",
+                bulk_service_desc: "¿Compra para 2+ semanas? Pida por WhatsApp. Nosotros lo preparamos, usted solo paga al recoger. Sin adelantos."
             },
             ar: {
                 nav_home: "الرئيسية", nav_products: "المنتجات", nav_about: "من نحن",
                 btn_explore: "استكشف",
-                hero_title1: "العالم في", hero_title2: "حيّكم.",
-                hero_desc: "25 عاماً من الثقة في نايميخن. جودة ممتازة، ضمان حلال بنسبة 99%، وعائلة لا تعرف التمييز. طعام طازج من كل أنحاء العالم.",
+                hero_title1: " نتمنى لكم ", hero_title2: " يوماً سعيداً !!! ",
+                hero_desc: "25 عاماً من الثقة في نايميخن. جودة ممتازة، ضمان حلال بنسبة 99%، وعائلة ترحب بالجميع. طعام طازج من كل أنحاء العالم.",
                 btn_products: "عرض المنتجات", btn_story: "اقرأ قصتنا",
                 cat_subtitle: "أقسامنا", cat_title: "طازج وأصيل",
                 cat_meat: "الملحمة", cat_meat_desc: "تشتهر بأفضل اللحوم والدواجن في منطقة خيلدرلاند. حلال بنسبة 99%، تُقطع طازجة يومياً.",
                 cat_pantry: "المؤنة العالمية", cat_pantry_desc: "منتجات من البلقان وآسيا وأفريقيا. إذا كنت تشتاق لمذاق الوطن، فستجده عندنا.",
                 cat_bakery: "المخبز الطازج", cat_bakery_desc: "خبز تركي أصيل، بقلاوة حلوة، ومعجنات طازجة يومياً. خُبزت بإتقان.",
-                about_title: "لا تمييز. فقط طعام جيد.",
+                about_title: "ترحيب حار. فقط طعام جيد.",
                 about_desc: "هدفنا بسيط: ابتسامة، لطف، وخدمة استثنائية. الأطفال الذين زارونا في عربات الأطفال قبل 25 عاماً يتسوقون الآن هنا لعائلاتهم.",
-                footer_desc: "أكثر من مجرد سوبر ماركت. مركز عائلي في نايميخن يقدم أفضل اللحوم الحلال والمنتجات العالمية.",
-                footer_contact: "تبحث عن منتج معين؟ يمكننا طلبه لك لتستلمه من المتجر."
+                footer_desc: "نأتي بنكهات العالم إلى باب منزلك منذ عام 1998. شريكك الموثوق.",
+                footer_links: "روابط سريعة", footer_contact: "الموقع", footer_rights: "© 2024 دنيا سوبر ماركت عالمي. جميع الحقوق محفوظة.",
+                bulk_service_desc: "طلب لـ اسبوعين أو أكثر؟ أرسل قائمتك عبر الواتساب. نجهزها لك وتدفع عند الاستلام. لا يشترط الدفع المسبق."
             },
-            zza: {
+            zz: {
                 nav_home: "Serpel", nav_products: "Berhemi", nav_about: "Heqa Ma de",
                 btn_explore: "Keşf bıkerê",
-                hero_title1: "Dınya dı", hero_title2: "Mehelayê Şıma de.",
-                hero_desc: "Nijmegen de 25 serrî itimat. Kaliteyo berz, %99 garantiya Helalî, u keyeyê bêmabên. Her kuncê dınya ra werdê taze.",
+                hero_title1: " ROJÊ DO ", hero_title2: " ŞÊRÎN !!! ",
+                hero_desc: "Nijmegen de 25 serrî itimat. Kaliteyo berz, %99 garantiya Helalî, u keyeyê ke her kes tede yeno pîroz kerdene. Her kuncê dınya ra werdê taze.",
                 btn_products: "Berheman bıvênê", btn_story: "Hêkata Ma bıwanê",
                 cat_subtitle: "Qısımanê Ma", cat_title: "Taze u Orjinal",
                 cat_meat: "Qesab", cat_meat_desc: "Mıntıqaya Gelderland de goşt u kerga tewr rınde zanîyena. %99 sertîfîkaya Helalî, rojane taze bırîyena.",
                 cat_pantry: "Marketa Dınya", cat_pantry_desc: "Balkan, Asya u Afrika ra berhemi. Eke şıma bêriya tamê welatê xo kenê, ma de esto.",
                 cat_bakery: "Noniya Taze", cat_bakery_desc: "Nanê tırkiyo orjinal, baqlawaya şîrine u nanpajê rojaneyê taze. Bi kemalî pociyeno.",
-                about_title: "Cudakarî çînyo. Teyna werdê rındî.",
+                about_title: "Yew xêrhatîyo germ. Teyna werdê rındî.",
                 about_desc: "Hedefê ma hêsano: yew huyayîş, xeyrxawî u xızmetê do xasek. Qeçê ke 25 serrî verê bi erebeyê qeçan ameyêne, nıka keyeyê xo rê tiya ra bazari kenê.",
-                footer_desc: "Supermarket ra vêşêr. Nijmegen de merkezê do keyeyî ke goştê helalî u berhemanê dınyayî pêşkêş keno.",
-                footer_contact: "Şıma çîyêdo xususî geyrenê? Ma şenê şıma rê ferman bıderê."
+                footer_desc: "1998 ra nat tehmê dinya kapiyê şıma de yo. İtibarê şıma yo herdemi.",
+                footer_links: "Lînkê Leze", footer_contact: "Ca", footer_rights: "© 2024 Dunya International Supermarket. Heqî amê pawıtene.",
+                bulk_service_desc: "2+ heftan rê market? WhatsApp ra bınusên. Ma amade kenîme, şıma teyna bıpayerê. Verpê dînayîş çînyo."
             }
         };
 
@@ -675,27 +714,30 @@
         document.addEventListener('click', () => {
             if(isLangOpen) {
                 isLangOpen = false;
-                langDropdown.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+                if (langDropdown) {
+                    langDropdown.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+                    langDropdown.classList.remove('opacity-100', 'scale-100');
+                }
             }
         });
 
         // The Translation Function
         window.setLanguage = function(langCode) {
+            localStorage.setItem('dunya-language', langCode);
+            
             // Update button text
             currentLangText.textContent = langCode.toUpperCase();
             
-            // Handle RTL for Arabic
-            if (langCode === 'ar') {
-                document.documentElement.setAttribute('dir', 'rtl');
-            } else {
-                document.documentElement.setAttribute('dir', 'ltr');
-            }
+            // Handle RTL
+            const isRTL = langCode === 'ar' || langCode === 'ku';
+            document.documentElement.setAttribute('dir', isRTL ? 'rtl' : 'ltr');
 
             // Highlight selected option
             document.querySelectorAll('.lang-option').forEach(el => {
-                if(el.getAttribute('data-lang') === langCode) {
+                const itemLang = el.getAttribute('data-lang');
+                if(itemLang === langCode) {
                     el.classList.add('lang-active');
-                } else {
+                } else if(itemLang) {
                     el.classList.remove('lang-active');
                 }
             });
@@ -704,10 +746,13 @@
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 if(translations[langCode] && translations[langCode][key]) {
+                    // Auto-style "Halal" and add icon
+                    const styledText = translations[langCode][key].replace(/(Halal|Helal|حلال)/gi, '<span class="text-dunya-light inline-flex items-center gap-1 font-bold"><i class="fa-solid fa-certificate text-[10px]"></i> $1</span>');
+                    
                     // Add fade animation during text change
                     el.style.opacity = '0';
                     setTimeout(() => {
-                        el.textContent = translations[langCode][key];
+                        el.innerHTML = styledText;
                         el.style.opacity = '1';
                     }, 200);
                 }
@@ -715,7 +760,10 @@
             
             // Close dropdown if on desktop
             isLangOpen = false;
-            langDropdown.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+            if (langDropdown) {
+                langDropdown.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+                langDropdown.classList.remove('opacity-100', 'scale-100');
+            }
         };
 
         // 2. Greeting Cycler (Top of Hero)
@@ -813,7 +861,7 @@
         mobileBtn.addEventListener('click', toggleMobileMenu);
 
         const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
+        function handleNavbarScroll() {
             const isLight = document.documentElement.classList.contains('light');
             if (window.scrollY > 50) {
                 navbar.classList.add('shadow-lg');
@@ -824,10 +872,15 @@
                 if (!isLight) navbar.style.background = 'rgba(10, 15, 12, 0.6)';
                 else navbar.style.background = '#ffffff';
             }
-        });
+        }
+        window.addEventListener('scroll', handleNavbarScroll);
 
-        // Set Year
-        document.getElementById('year').textContent = new Date().getFullYear();
+        // Global Initialization
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('dunya-language') || 'en';
+            setLanguage(savedLang);
+            handleNavbarScroll();
+        });
     </script>
 </body>
 </html>
