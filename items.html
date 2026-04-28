@@ -130,7 +130,7 @@
         /* Keep green accents */
         html.light .bg-dunya-main { background-color: #16a34a; }
         html.light .text-dunya-light { color: #16a34a !important; } /* Ensure dunya-light is visible */
-        html.light .category-pill:not(.active) { 
+        html.light .category-pill:not(.active):not(.baklava-special-pill) { 
             background: #ffffff !important; 
             color: #000000 !important; 
             border: 1px solid rgba(0, 0, 0, 0.1) !important; 
@@ -193,8 +193,8 @@
 
         /* Category Scroll Fade */
         .category-scroll-fade {
-            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
         }
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px); }
@@ -209,14 +209,16 @@
 
         /* Baklava Signature Highlight */
         .baklava-special-pill {
-            background: linear-gradient(135deg, #b45309 0%, #d97706 100%) !important;
+            background: linear-gradient(135deg, #d97706 0%, #fbbf24 100%) !important;
             color: white !important;
-            border: 2px solid #fbbf24 !important;
-            box-shadow: 0 4px 15px rgba(180, 83, 9, 0.4) !important;
+            border: 2px solid #fcd34d !important;
+            box-shadow: 0 0 20px rgba(217, 119, 6, 0.5), 0 0 40px rgba(251, 191, 36, 0.2) !important;
             position: relative;
             overflow: hidden;
             font-weight: 700 !important;
         }
+
+        html.light .baklava-special-pill { color: white !important; box-shadow: 0 8px 25px rgba(217, 119, 6, 0.35) !important; }
 
         .baklava-special-pill::after {
             content: '';
@@ -347,15 +349,17 @@
 
     <!-- Filters -->
     <section class="pb-12 px-6 sticky top-[73px] z-30">
-        <div class="max-w-7xl mx-auto flex overflow-x-auto gap-4 pb-4 no-scrollbar justify-center category-scroll-fade">
-            <button class="category-pill active glass-panel px-6 py-2.5 rounded-full whitespace-nowrap text-sm font-medium" onclick="filterCategory(event, 'all')" data-i18n="cat_all">All Items</button>
-            <button class="category-pill glass-panel px-6 py-2.5 rounded-full whitespace-nowrap text-sm font-medium" onclick="filterCategory(event, 'butcher')" data-i18n="cat_meat">Butcher</button>
-            <button class="category-pill glass-panel px-6 py-2.5 rounded-full whitespace-nowrap text-sm font-medium" onclick="filterCategory(event, 'bakery')" data-i18n="cat_bakery">Bakery</button>
-            <button class="category-pill glass-panel px-6 py-2.5 rounded-full whitespace-nowrap text-sm font-medium" onclick="filterCategory(event, 'dairy')" data-i18n="cat_dairy">Dairy & Cheese</button>
-            <button class="category-pill glass-panel px-6 py-2.5 rounded-full whitespace-nowrap text-sm font-medium" onclick="filterCategory(event, 'grocery')" data-i18n="cat_grocery">Grocery</button>
-            <button class="category-pill glass-panel px-6 py-2.5 rounded-full whitespace-nowrap text-sm font-medium baklava-special-pill" onclick="filterCategory(event, 'baklava')" data-i18n="cat_baklava">
+        <div class="max-w-7xl mx-auto flex overflow-x-auto gap-4 pb-4 no-scrollbar justify-start md:justify-center category-scroll-fade">
+            <div class="min-w-[1rem] shrink-0 md:hidden"></div>
+            <button class="category-pill active glass-panel px-6 py-2.5 rounded-full whitespace-nowrap text-sm font-medium shrink-0" onclick="filterCategory(event, 'all')" data-i18n="cat_all">All Items</button>
+            <button class="category-pill glass-panel px-6 py-2.5 rounded-full whitespace-nowrap text-sm font-medium shrink-0" onclick="filterCategory(event, 'butcher')" data-i18n="cat_meat">Butcher</button>
+            <button class="category-pill glass-panel px-6 py-2.5 rounded-full whitespace-nowrap text-sm font-medium shrink-0" onclick="filterCategory(event, 'bakery')" data-i18n="cat_bakery">Bakery</button>
+            <button class="category-pill glass-panel px-6 py-2.5 rounded-full whitespace-nowrap text-sm font-medium shrink-0" onclick="filterCategory(event, 'dairy')" data-i18n="cat_dairy">Dairy & Cheese</button>
+            <button class="category-pill glass-panel px-6 py-2.5 rounded-full whitespace-nowrap text-sm font-medium shrink-0" onclick="filterCategory(event, 'grocery')" data-i18n="cat_grocery">Grocery</button>
+            <button class="category-pill glass-panel px-6 py-2.5 rounded-full whitespace-nowrap text-sm font-medium baklava-special-pill shrink-0" onclick="filterCategory(event, 'baklava')" data-i18n="cat_baklava">
                 <i class="fa-solid fa-fire mr-1 text-yellow-300"></i>Baklava
             </button>
+            <div class="min-w-[2rem] shrink-0 md:hidden"></div>
         </div>
         <!-- Scroll Hint for Mobile -->
         <div class="flex justify-center mt-2 md:hidden">
